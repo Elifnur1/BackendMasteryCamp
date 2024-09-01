@@ -17,6 +17,7 @@ class Program
         */
 
         //sadece sayı girişi yaptıralım
+        /*
         ConsoleKeyInfo character;
         string resultNumber="";
         Console.Write("Bir karaker girin :");
@@ -38,5 +39,35 @@ class Program
                 }
             }
         } while (character.Key != ConsoleKey.Enter);
+        */
+
+        //girilen sayının asal sayı olup olmadığını tespit edip ekrana yazdırın.
+        
+        // bool isprime=true;
+        // Console.Write("bir sayı girin: ");
+        // int number=int.Parse(Console.ReadLine());
+        // if (number <=1)
+        // {
+        //    isprime=false;
+        // }
+        // else
+        // {
+        //     for (int i = 2; i<number-1; i++)
+        //     {
+        //         if (number % i==0)
+        //         {
+        //             isprime=false;
+        //             break;
+        //         }
+        //     }
+        // }
+        // Console.WriteLine(isprime==true ? "Asal" : "Asal değil.");
+
+
+       
+
+
+
+
     }
 }
