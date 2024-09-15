@@ -100,7 +100,7 @@ class Program
         // {
         //     if (numbers[i] > 0)
         //     {
-        //         result[i] = positiveNumbers[positiveIndex];
+        //         result[i] = positiveNumbers   [positiveIndex];
         //         positiveIndex++;
         //     }
         //     else
@@ -139,14 +139,51 @@ class Program
 
         #endregion
 
-        #region soru12 //sor
+        #region soru12
 
-        //  int[] numbers=new int[100];
-        //  Random rnd=new Random();
-        //  for(int i=0; i<numbers.Length; i++)
-        //  {
-        //     numbers[i]= rnd.Next(1,101);
-        //  }
+        // 100 elemanlı rastgele değerlerden oluşan bir tam sayı dizisinde en sık tekrar eden elemanı bulan ve kaç defa tekrarlandığını ekrana yazdıran bir program yazın.Bu işlemi bir foreach döngüsü ile gerçekleştirin.
+
+        // int[] dizi = new int[20];
+        // Random rnd = new Random();
+        // int sayaç = 1;
+
+        // for (int i = 0; i < dizi.Length; i++)
+        // {
+        //     dizi[i] = rnd.Next(1, 11);
+
+        // }
+        // System.Console.WriteLine("Random dizimiz");
+        // System.Console.WriteLine("---------------------------------------------------");
+        // foreach (var item in dizi)
+        // {
+        //     System.Console.WriteLine($"{sayaç}. ==> {item}");
+        //     sayaç++;
+        // }
+
+        // int fazlaTekEleman = dizi[0];
+        // int tekrareleman = 0;
+
+        // for (int i = 0; i < dizi.Length; i++)
+        // {
+        //     int x = dizi[i];
+        //     int teksay = 0;
+
+        //     foreach (var eleman in dizi)
+        //     {
+        //         if (eleman == x)
+        //         {
+        //             teksay++;
+        //         }
+        //     }
+
+        //     if (teksay > tekrareleman)
+        //     {
+        //         fazlaTekEleman = x;
+        //         tekrareleman = teksay;
+        //     }
+        // }
+
+        // System.Console.WriteLine($"En çok tekrar eden eleman {fazlaTekEleman} = {tekrareleman} kadar tekrarlanıyor.");
 
         #endregion
 
@@ -165,16 +202,41 @@ class Program
         // int total=numbers.Where(number => number % 3 == 0).Sum();
 
         // int karakterSayaci = 0;
-        // foreach (char number in total.ToString())
+        // foreach (var number in numbers)
         // {
         //     Console.Write(number);
         //     karakterSayaci++;
         //     if (karakterSayaci % 5 == 0)
         //     {
         //         Console.Write(" ");
-        //     }
-        // }
-        // Console.WriteLine();
+        //      }
+        //  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         #endregion
 
         #region soru15
@@ -194,7 +256,42 @@ class Program
 
         #endregion
 
-        #region soru16 //sor
+       var    #region soru16 //sor
+        int input;
+        //         int sayaç=0;
+        //         int[] dizi = new int[10];
+        //         int top =0;
+
+        //     do
+        //     {
+
+        //         System.Console.WriteLine("Bir sayı giriniz => ");
+        //         input = int.Parse(Console.ReadLine());
+
+
+        //         if( input !=0)
+        //         {
+        //             dizi[sayaç] = input;
+        //             top +=input;
+
+        //             sayaç++;
+        //         }
+
+
+
+        // } while (input != 0 && sayaç < dizi.Length);
+        //     Array.Resize(ref dizi, dizi.Length);
+        //     foreach (var item in dizi)
+        //     {
+        //         System.Console.WriteLine(item);
+        //     }
+
+        //   if(sayaç >0)
+        //   {
+        //         double ort =(double)top/sayaç;
+        //         System.Console.WriteLine($"Sayılarımızın ortalaması = {ort}");
+        //   }
+
 
         // int sayi;
         // List<int> sayilar = new List<int>();
@@ -223,29 +320,32 @@ class Program
         #endregion
 
         #region soru17
+
+        // int[] sayilar = { 3, 6, 2, 9, 11, 5, 1, 8 };
+
+        // int enBuyuk1 = int.MinValue;
+        // int enBuyuk2 = int.MinValue;
+
+        // for (int i = 0; i < sayilar.Length; i++)
+        // {
+        //     if (sayilar[i] > enBuyuk1)
+        //     {
+        //         enBuyuk2 = enBuyuk1; 
+        //         enBuyuk1 = sayilar[i];
+        //     }
+        //     else if (sayilar[i] > enBuyuk2 && sayilar[i] != enBuyuk1)
+        //     {
+        //         enBuyuk2 = sayilar[i]; 
+        //     }
+        // }
+
+        // Console.WriteLine("En büyük sayı: " + enBuyuk1);
+        // Console.WriteLine("İkinci en büyük sayı: " + enBuyuk2);
+
+        #endregion
+
+
         
-            // int[] sayilar = { 3, 6, 2, 9, 11, 5, 1, 8 };
-
-            // int enBuyuk1 = int.MinValue;
-            // int enBuyuk2 = int.MinValue;
-
-            // for (int i = 0; i < sayilar.Length; i++)
-            // {
-            //     if (sayilar[i] > enBuyuk1)
-            //     {
-            //         enBuyuk2 = enBuyuk1; 
-            //         enBuyuk1 = sayilar[i];
-            //     }
-            //     else if (sayilar[i] > enBuyuk2 && sayilar[i] != enBuyuk1)
-            //     {
-            //         enBuyuk2 = sayilar[i]; 
-            //     }
-            // }
-
-            // Console.WriteLine("En büyük sayı: " + enBuyuk1);
-            // Console.WriteLine("İkinci en büyük sayı: " + enBuyuk2);
-        
-    #endregion
-}
+    }
 
 }
