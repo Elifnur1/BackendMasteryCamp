@@ -18,6 +18,11 @@ public class Car : Vehicle
         base.BilgileriYaz();
         System.Console.WriteLine($"arabanın kapı sayısı: {CountOfDoors}");
     }
-    
+    // public override void GetSignal();
+    // {
+    //     throw new NotImplementedException
+    // }
 
- }
+
+
+}

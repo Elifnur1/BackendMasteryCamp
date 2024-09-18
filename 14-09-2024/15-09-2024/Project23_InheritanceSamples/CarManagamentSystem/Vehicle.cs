@@ -26,6 +26,7 @@ public class Vehicle
  {
     System.Console.WriteLine($"Markası: {Brand}\nModeli: {Model}\nYılı: {Year}");
  }
+
  }
 
 
