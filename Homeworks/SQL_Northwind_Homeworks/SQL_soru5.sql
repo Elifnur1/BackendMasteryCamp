@@ -1,0 +1,4 @@
+SELECT *
+FROM Orders o 
+WHERE o.OrderDate BETWEEN '1998-1-1' AND '1998-12-31'
+ORDER BY o.OrderDate
