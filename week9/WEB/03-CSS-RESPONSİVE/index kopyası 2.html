@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kişisel Web Sitesi</title>
+    <link rel="" stylesheet href="css/style.css">
+</head>
+<style>
+    * {
+        margin: 0px;
+        /*Dış boşluk*/
+        padding: 0px;
+        /*İç boşluk*/
+    }
+
+    body {
+        background-color: rgb(246, 219, 247);
+        font-family: 'Courier New';
+        font-size: 15px;
+
+    }
+
+    #pageHeader {
+        text-align: center;
+        padding: 20px 40px;
+        background: #5b364f;
+        /* padding-top: 20px;
+        padding-bottom: 20px;
+        padding-right: 20px; */
+        /* padding-left: 20px; */
+
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    #About,
+    #skills,
+    #links,
+    #profilePicture,
+    #contact {
+        background-color: #f6efef;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 30px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0, 5);
+    }
+    
+    #skillsContainer {
+        list-style-type: none;
+        display: flex;
+    }
+
+    .skills {
+        margin-bottom: 3px;
+        margin-top: 8px;
+    }
+
+    #links a {
+        text-decoration: none;
+        color: purple;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    #links a:hover {
+        color: rgb(15, 49, 239);
+    }
+
+    #profilePicture img {
+        border-radius: 100px;
+    }
+
+    #contact form input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color .3s;
+        /*Transition: al .3s;. Eğer birden fazla özelliğe aynı süreyi vereceksek bu şekilde yazabiliriz.*/
+
+    }
+
+    #contact form input[type="submit"]:hover {
+        background-color: #555;
+        width: 300px;
+    }
+    @media (max-width: 850px){
+        h1{
+            font-size: 36px;
+        }
+    }
+
+    /*
+        body {
+            background-color: pink; 
+        }
+        div{
+            color: darkblue;
+        }
+        #header{
+            background-color: darkorchid;
+        }
+        .skills{
+            color: brown;
+        }
+            */
+</style>
+
+
+<body>
+    <div id="pageHeader">
+        <h1 style="color: rgb(245, 52, 216); font-size: 60px;">Merhaba ben Elif Binici</h1>
+        <p>Yazılım Geliştirici | Teknoloji Aşığı | Spor Tutkunu</p>
+
+    </div>
+    <!-- Kişisel Bilgiler Bölümü -->
+    <div id="About">
+        <h2>Hakkımda</h2>
+        <p>Merhaba,ben Elif ve 5 yıldıkr yazılım geliştirici olarak çalışıyorum.Bireysel olara proje tasarlamayı
+            seviyorum.Aynı zamanda spor yapmaya ve teknolojiyede meraklıyım yakından ilgileniyorum.</p>
+    </div>
+    <!--Yetenekler Bölümü-->
+    <div id="skills">
+        <h2>Yetenekler</h2>
+        <div id="skillsContainer">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">MVC</div>
+            <div class="skill">API</div>
+            <div class="skill">Nodels</div>
+        </div>
+    </div>
+    <!--Bağlantılar Bölümü-->
+    <div id="links">
+        <h2>Benimle bağlantı kurun!</h2>
+        <div><a href="https://www.github.com" target="_blank">Github</a></div>
+        <div><a href="https://wwwlinkedin.com">Linkedn</a>
+        </div>
+
+
+        <!-- Görsel Bölümü -->
+        <div id="profilePicture">
+            <h2>Profil Fotoğrafı</h2>
+            <!-- <img src="https://placehold.co/200" alt=""> -->
+            <img src="https://picsum.photos/200" alt="">
+        </div>
+
+        <!-- İletişim Bölümü -->
+        <!-- <div#contact -->
+        <div id="contact">
+            <h2>Benimle iletişime geçin.</h2>
+            <form action="">
+                <label for="">Ad Soyad:</label>
+                <input type="text">
+                <!-- <input type="radio">
+            <input type="checkbox">
+            <input type="file"> -->
+        </div>
+        </form>
+
+        <div>
+            <label for="">Email: </label>
+            <input type="email">
+        </div>
+        <div>
+            <label for="">Mesaj: </label>
+            <textarea></textarea>
+        </div>
+        <div>
+            <input type="button" value="Mesajı Gönder">
+        </div>
+</body>
+
+</html>
