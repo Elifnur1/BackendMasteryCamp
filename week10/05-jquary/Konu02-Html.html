@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+</head>
+
+<body>
+    <h1>Html İşlemleri</h1>
+    <p id="degistir-js" style="border:1px solid red"></p>
+    <p id="degistir-js" style="border:1px solid red"></p>
+
+    <p id="icerik-al-js"> Java Script ile içerik al</p>
+    <p id="icerik-al-jq">Squery ile içerik al</p>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            const pJs1 = document.getElementById('degistir-js');
+            pJs1.innerText = 'Javascript ile metin eklendi';
+
+            const pJq1 = $('#degistir-js');
+            pJq1.text('Buda jQuary ile değiştirildi.');
+
+            const icerik1 = document.guerySelector('#icerik-al-js');
+            alert(icerik1.innerText);
+
+            const icerik2 = $('#icerik-al-js');
+            alert(icerik2.text());
+        });
+    </script>
+
+
+</body>
+
+</html>

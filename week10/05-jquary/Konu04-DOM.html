@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Document Object Model</title>
+</head>
+
+<body style="background-color: black; color: white;">
+    <input type="text" id="metin" value="text box içindeki değer">
+    <hr>
+
+    <textarea name="" id="urun-aciklama">Ürünün açıklaması
+    </textarea>
+    <hr>
+
+    <input type="checkbox" name="" id="onay">Onaylıyorum
+    <hr>
+
+    <select name="" id="kategori">
+        <option value="elektronik">Elektronik</option>
+        <option value="telefon">telefon</option>
+        <option value="bilgisayar">Bilgisayar</option>
+    </select>
+    <hr>
+
+    <input type="radio" name="cinsiyet" id="" value="kadın" checked> Kadın
+    <input type="radio" name="cinsiyet" id="" value="erkek"> Erkek
+    <hr>
+
+    <a href="https://www.example.com" title="Anasayfaya gitmek için tıklayınız">Ana Sayfa</a>
+    <hr>
+
+    <input type="button" id="btn-sonuc" value="Sonuçları Getir">
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#btn-sonuc').click(function () {
+                let results = '';
+                results += `Input Değeri: ${$('#metin').val()}`;
+                console.log('selam');
+                results += `<br>Onay durumu: ${$('input#onay:checkbox:cheked').val()=='on' ?'onayladınız' :'onay vermediniz'}`;
+                
+
+
+            })
+        });
+    </script>
+
+</body>
+
+</html>

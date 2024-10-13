@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>String</title>
+</head>
+
+<body>
+
+
+    <script>
+        // let text1 = "AcunMedyaAkademi";
+        // let text2 = "Merhaba Dünya";
+        // let text3 = `Backtick`;
+        // console.log(text1.length);
+        // console.log(text2.charAt(5));  //kaçıncı indexte,hangi karakter olduğnu görmeyi sağlayan keyword.
+        // console.log(text3.toLowerCase());
+        // console.log(text3.toUpperCase());
+        // console.log(text1.slice(4,9));
+        // console.log(text1.replace(' ','/'));
+        // let tittle='10.dönem backend temel eğitimi';
+        // console.log(tittle);
+        // console.log(tittle.split(' '));
+        //title içindeki boşlukların tamamını - ile değiştirin ve aşağıdaki gibi bir sonuç üretin.
+        //backende-temel-eğitimi
+        let tittle = 'Backend Temel Eğitimi';
+        //1.yol 
+        let tittlesplit = tittle.split(' ');
+        tittle = "";
+        for (let i = 0; i < tittlesplit.length; i++) {
+            if (i != tittlesplit.length - 1) {
+                tittle += tittlesplit[i] + '-';
+            } else {
+                tittle += tittlesplit[i];
+            }
+
+        }
+        //2.yol ve kullanışlı yol
+        let newTittle = tittlesplit.join('-');
+        console.log(tittlesplit);
+        console.log(tittle);
+        console.log(newTittle)
+    </script>
+</body>
+
+</html>

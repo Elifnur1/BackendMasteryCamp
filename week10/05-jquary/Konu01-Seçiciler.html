@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuary Seçiciler</title>
+</head>
+
+<body>
+    <h1>jQuery Seçiciler</h1>
+    <p>jQuery hızlı,performanslı ve kısa bir şekilde JS kodları yazabilmemizi sağlayan bir kütüphanedir.</p>
+
+    <h2>jQuery nasıl eklenir?</h2>
+    <ol>
+        <li>jQuery dosyasını indirip proje klosörüne koyarak.</li>
+        <li>CDN linki kullanarak.</li>
+
+    </ol>
+
+    <h2 id="tittle">Id 'ye göre seçme.</h2>
+    <p id="message"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, omnis earum. Illum consequatur
+        dolorum perspiciatis fuga, sequi perferendis, blanditiis in harum at porro corporis voluptate incidunt qui!
+        Quos, iste ex!</p>
+
+    <h2 id="tittle"> Deneme</h2>
+    <p id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ratione repellendus ipsa,
+        illo, modi nesciunt dolores iure velit ea ullam eligendi maxime recusandae consequuntur rerum, architecto
+        suscipit id natus deserunt at voluptate incidunt quo sunt in sed! Laborum tempora cumque omnis voluptates.
+        Accusantium iste similique itaque ipsa sint nemo vitae repellat deleniti laborum in? Cum quia laboriosam animi.
+        Cupiditate velit qui consequuntur necessitatibus molestias fugiat sunt ab. Ullam iste quasi, ratione quos
+        doloremque ex sequi repudiandae eligendi! Voluptas architecto fuga excepturi incidunt nesciunt officiis totam a
+        sunt aperiam libero dicta similique molestiae, quos autem delectus necessitatibus omnis. Dicta asperiores
+        nesciunt magni facilis iure quia. Quam veritatis quo quis debitis saepe libero? Fugiat nostrum reiciendis
+        mollitia dolores laboriosam. Minima dolores nulla vel laudantium corporis eius dignissimos incidunt cumque!
+        Culpa pariatur quod fugiat blanditiis repellendus aliquid asperiores provident voluptatibus, aut dolorem, ipsa
+        quia fugit inventore beatae officia! Repellat fugiat optio, vitae eius odit nostrum recusandae enim incidunt
+        voluptas autem nesciunt, quos possimus ratione dolore. Numquam similique fuga, sunt tenetur provident libero!
+        Officiis molestiae vero quis sit officia laudantium animi, nostrum totam iste natus, aperiam sequi. Reiciendis,
+        rerum vel? Quaerat temporibus culpa praesentium quisquam eius asperiores, impedit molestias fugiat eveniet dolor
+        ipsum incidunt.
+    </p>
+    <script src="jquery.js"></script>
+    <script>
+        $('div').text('Yeni Metin');
+
+        $('#tittle').text("jQuary kullanarak ID seçme");
+        $('#message').text('Yeni Mesaj');
+        const tittle = $('#tittle');
+        console.log($('#message'));
+
+    </script>
+</body>
+
+</html>

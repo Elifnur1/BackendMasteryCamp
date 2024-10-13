@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seçiciler</title>
+</head>
+
+<body>
+    <p id="hello">merhaba</p>
+    <div>1.Div içeriği</div>
+    <div>2.Div içeriği</div>
+    <div id="bosDiv" style="border:1px solid red">
+
+    </div>
+    <br><br>
+    <h2 class="baslik1 metin1"> </h2>
+    <p id="metin1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, numquam saepe dolores repellendus
+        magni alias nobis, expedita veritatis, eos sint delectus magnam? Reiciendis fuga perspiciatis quibusdam animi at
+        labore laudantium.
+
+    </p>
+
+
+    <div id="metin2" class="metin1" style="background-color: aqua;">
+    </div>
+    <a class="link" href="#"> Link1</a>
+    <ul>
+        <li>Anasayfa</li>
+        <li>Hakkında</li>
+        <li>İletişim</li>
+    </ul>
+
+    <a href="#">Link2</a>
+    <a href="#">Link3</a>
+    <div class="menu-container">
+        <ul class="menu"></ul>
+    </div>
+
+    <a id="metin1" href="#">Link4</a>
+
+    <script>
+        // const helloElement = document.getElementById('hello');
+        // hello.style.background = 'aqua';
+        // hello.style.padding='20px';
+        // hello.style.color='red';
+        // hello.innerText='merhaba java';
+
+        // const allDivs=document.getElementsByTagName('div');
+        // console.log(allDivs);
+        // const allH2s=document.getElementsByTagName('h2');
+        // console.log(allH2s);
+
+        // const bosDivElementi=document.getElementsByTagName('bosDiv');
+        // bosDiv.innerHTML=`
+        //    <a href="https://www.google.com" >Google </a>
+        // `;
+
+        // const baslik1=document.getElementsByClassName('baslik1');
+        // console.log(baslik1);
+
+        //CSS sorgularına göre element seçmek
+        const allA = document.getElementsByTagName('a');
+        console.log(allA);
+        const allA2 = document.querySelectorAll('a');
+        console.log(allA2);
+        
+        const metin1=document.getElementById('metin1');
+        console.log(metin1);
+        
+        const allMetin1=document.querySelectorAll('#metin1');
+        console.log(allMetin1);
+    </script>
+
+</body>
+
+</html>

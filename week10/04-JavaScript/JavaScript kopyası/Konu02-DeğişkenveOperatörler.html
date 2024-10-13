@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Değişken ve Operatörler</title>
+</head>
+
+<body>
+
+
+    <script>
+        "use strict";
+        // console.log("Hello World");
+        // console.log('Hello Dünya');
+        // console.warn("DİKKAT! ");
+        // console.error("BURDA BİR HATA OLUŞTU")
+
+        // var number=25;
+        // let number = 35;
+        // let firtsName = "Elif";
+        // let lastName;
+        // console.log(number, typeof (number));
+        // console.log(firtsName, typeof (firtsName));
+        // console.log(lastName, typeof (lastName));
+
+        // let car={
+        //     brand:'Audi',
+        //     model:'A4',
+        //     year:1997,
+        //     color:'Beyaz'
+        // }
+        // console.log(car);
+        // console.log(typeof(car));
+
+        // let ages=[19,90,56,24,"ali"];
+        // console.log(ages);
+        // console.log(typeof(ages));
+
+        let student = {
+            'number': 15,
+            'firstname': 'elif',
+            'lastname': 'Drogba',
+            'adress': {
+                'dicstrict': 'İstanbul',
+                'country': 'Türkiye'
+            },
+            'hobbies': ['Cinema', 'Books', 'Sport']
+        }
+        console.log(student.adress.country);
+        console.log(student.firstname + ' ' + student.lastname)
+
+        const pi = 3.14;
+
+        //Aritmatik Operatörler
+        // let number1 = 40;
+        // let number2 = 3;
+        // console.log(number1 + number2);
+        // console.log(number1 - number2);
+        // console.log(number1 * number2);
+        // console.log(number1 / number2);
+        // console.log(number1 % number2);
+
+        // let name="Acunmedya Akademi";
+        // console.log(number1+name);
+        // console.log(number1++);
+        // console.log(++number1);
+
+        // number1 = number1+5;
+        // number+=5;
+
+
+        //Karşılaştırma Operatörleri
+        // console.log(3==4);
+        // console.log(5==5);
+        // console.log(5=="5");
+        // console.log(5==="5");
+        // console.log(6 != 6);
+
+        //Mantıksal Operatörler
+        console.log(5 == 5 && 6 == 6);
+        console.log(5 == 5 && 6 == 7);
+        console.log(5 == 5 && 6 == 8);
+
+        console.log(6 > 3 || 7 >= 9);
+
+    </script>
+</body>
+
+</html>
