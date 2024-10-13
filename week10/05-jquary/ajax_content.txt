@@ -1,0 +1,10 @@
+
+    <h1>AJAX</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam esse, ullam quasi hic commodi dolorum ex. Deserunt laboriosam qui nemo voluptatibus inventore itaque similique eaque ad laborum eum, quo porro!</p>
+    <ul>
+        <li>prop1</li>
+        <li>prop2</li>
+        <li>prop3</li>
+        <li>prop4</li> 
+    </ul>
+    <a href="https://www.jquery.com">jQuery sitesinie gitmek</a>
