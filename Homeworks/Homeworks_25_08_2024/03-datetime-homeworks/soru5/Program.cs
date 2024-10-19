@@ -5,6 +5,8 @@ class Program
     static void Main(string[] args)
 
     {
+        //Kullanıcıdan alınan bir tarihin yılın kaçıncı günü olduğunu hesaplayan bir program yazın.
+        
         // Console.WriteLine("Tarihi YYYY-AA-GG formatında girin:");
         // string tarihStr = Console.ReadLine();
 

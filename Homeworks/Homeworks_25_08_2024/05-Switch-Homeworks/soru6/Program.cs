@@ -4,7 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-      /*
+        //Kullanıcıdan alınan bir nota göre (A, B, C, D, F) geçme veya kalma durumunu belirleyen bir program yazın.
+
         Console.Write("Bir not girin (A, B, C, D, F): ");
         string input = Console.ReadLine().ToUpper();
 
@@ -29,7 +30,7 @@ class Program
                 Console.WriteLine("Geçersiz bir not girdiniz. Lütfen A, B, C, D veya F girin.");
                 break;
         }
-        */
+        
     }
 }
 

@@ -4,7 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        /*
+        //Kullanıcıdan alınan bir sayıya göre (1-5 arası) Türk para biriminin adını yazdıran bir program yazın (1 Kr, 5 Kr, 10 Kr, 25 Kr, 50 Kr).
+
         Console.WriteLine("Bir sayı giriniz (1-5 arasında): ");
         string input = Console.ReadLine();
 
@@ -44,7 +45,7 @@ class Program
         {
             Console.WriteLine("Geçerli bir sayı girin.");
         }
-        */
+
 
 
     }

@@ -4,7 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-
+        //İki tarih arasındaki gün farkını hesaplayan bir program yazın.
+        
         // Console.WriteLine("İlk tarihi YYYY-AA-GG formatında girin:");
         // string ilkTarihStr = Console.ReadLine();
 

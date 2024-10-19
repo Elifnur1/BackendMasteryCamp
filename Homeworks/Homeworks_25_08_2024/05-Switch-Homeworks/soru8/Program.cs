@@ -4,7 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        /*
+        //Kullanıcıdan alınan bir sayıya göre (0-6 arası) bir geometrik şeklin adını yazdıran bir program yazın (0: Nokta, 1: Çizgi, 2: Açı, 3: Üçgen, 4: Kare, 5: Beşgen, 6: Altıgen).
+
         Console.WriteLine("Bir sayı girin: ");
         string number=Console.ReadLine();
 
@@ -53,6 +54,6 @@ class Program
         {
             Console.WriteLine("Geçerli bir sayı giriniz");
         }
-        */
+        
     }
 }

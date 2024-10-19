@@ -4,7 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        /*
+        //Kullanıcıdan alınan bir sayıya göre (1-12 arası) ayın adını yazdıran bir program yazın.
+        
         Console.WriteLine("Bir sayı girin 1 ile 12 asrasında: ");
         string input=Console.ReadLine();
 
@@ -75,6 +76,6 @@ class Program
         {
            Console.WriteLine("Geçersiz sayı girdini 1 ile 12 arasında değer girin");
         }
-        */
+        
     }
 }

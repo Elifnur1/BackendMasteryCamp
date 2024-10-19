@@ -4,7 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        /*  ANLAMADIKK
+        //Kullanıcıdan alınan bir sayının asal olup olmadığını kontrol eden bir program yazın.
+        //??
+
         Console.WriteLine("Bir sayı giriniz: ");
         double input=double.Parse(Console.ReadLine()); 
 
@@ -16,6 +18,6 @@ class Program
         {
             Console.WriteLine($"{input} bir asal sayı değildir!");
         }
-        */
+    
     }
 }

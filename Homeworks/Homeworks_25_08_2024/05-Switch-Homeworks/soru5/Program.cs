@@ -6,7 +6,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        /*
+        //Kullanıcıdan alınan bir sayıya göre (1-4 arası) mevsim adını yazdıran bir program yazın.
+
+
         Console.WriteLine("Bir sayı giriniz (1 ile 4 arasında) : ");
         string input=Console.ReadLine();
 
@@ -43,6 +45,6 @@ class Program
         {
             Console.WriteLine("Geçersiz sayı girdiniz (1-4 arasında girin)");
         }
-        */
+        
     }
 }

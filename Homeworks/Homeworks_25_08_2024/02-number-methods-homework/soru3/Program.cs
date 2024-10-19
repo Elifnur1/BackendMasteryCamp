@@ -3,8 +3,9 @@
 class Program
 {
     static void Main(string[] args)
-    { 
-        /*
+    {
+        /*Kullanıcıdan alınan bir sayının mutlak değerini hesaplayan bir program yazın.
+        
         Console.WriteLine("Bir sayı girin: ");
         sbyte number= sbyte.Parse(Console.ReadLine());
 
@@ -16,7 +17,7 @@ class Program
 
 
 
-    
+
 
 
 

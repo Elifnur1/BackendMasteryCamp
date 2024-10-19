@@ -6,21 +6,16 @@ class Program
     {
         static void Main()
         {
-        
-            /*
-            Console.Write("Bir cümle girin: ");
-            string cumle = Console.ReadLine();
 
-            
-            string[] kelimeler = cumle.Split(new char[] { ' ', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+       // 1-Kullanıcıdan alınan bir cümledeki kelime sayısını bulan bir program yazın. (`Split` metodunu araştırınız.)
+        // Console.Write("Bir cümle girin: ");
+        // string cumle = Console.ReadLine();
+        // System.Console.WriteLine(cumle.Split().Length);
 
-            
-            int kelimeSayisi = kelimeler.Length;
+
 
         
-            Console.WriteLine($"Cümlede {kelimeSayisi} kelime var.");
-            */
-        }
     }
+}
 
 

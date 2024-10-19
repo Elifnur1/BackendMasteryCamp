@@ -4,8 +4,9 @@ class Program
 {
     static void Main(string[] args)
         {
-          /*
-            Console.Write("Bir harf girin: ");
+         //Kullanıcıdan alınan bir harfe göre sesli veya sessiz harf olduğunu belirleyen bir program yazın.
+
+         Console.Write("Bir harf girin: ");
             string input = Console.ReadLine();
 
             if (input.Length == 1)
@@ -30,7 +31,7 @@ class Program
             {
                 Console.WriteLine("Lütfen geçerli bir harf girin.");
             }
-            */
+            
         }
     }
 

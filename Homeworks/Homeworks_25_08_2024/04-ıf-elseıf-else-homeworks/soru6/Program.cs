@@ -4,7 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        /*
+        //Kullanıcıdan alınan bir notun aşağıdaki tabloya göre harf karşılığını veren bir program yazın.
+
         Console.WriteLine("Bir not girin(0-100):");
         string input=Console.ReadLine();
 
@@ -57,7 +58,7 @@ class Program
             }
             Console.WriteLine($" notunuzun harf not karşılığı :{harfNotu}");
             }
-            */
+        
         
     }
 }

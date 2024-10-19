@@ -6,7 +6,8 @@ class Program
     
    
     {
-        /*
+        /*  Kullanıcıdan alınan üç sayıyı büyükten küçüğe sıralayan bir program yazın.
+        
         Console.Write("Birinci sayıyı girin: ");
         string input1 = Console.ReadLine();
         

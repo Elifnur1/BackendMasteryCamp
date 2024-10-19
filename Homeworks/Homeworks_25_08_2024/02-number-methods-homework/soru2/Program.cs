@@ -6,7 +6,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        /*
+        /*Kullanıcıdan alınan iki sayıdan hangisinin daha büyük olduğunu bulan bir program yazın.
+
         Console.WriteLine(" Bir sayı girin:" );
         byte number1=byte.Parse(Console.ReadLine());
         Console.WriteLine("2. sayıyı girin: "); 

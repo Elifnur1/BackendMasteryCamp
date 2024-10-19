@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        //Kullanıcıdan alınan bir saati, 12 saat formatından 24 saat formatına (veya tam tersi) çeviren bir program yazın.
 
         // Console.WriteLine("Saat formatını seçin (12H veya 24H):");
         // string format = Console.ReadLine().ToUpper();
@@ -31,13 +32,13 @@ class Program
         // else if (format == "24H")
         // {
         //     if (DateTime.TryParse(timeInput, out DateTime time))
-            // {
-            //     Console.WriteLine($"12 saat formatı: {time.ToString("h:mm tt")}");
-            // }
-            // else
-            // {
-            //     Console.WriteLine("Geçersiz 24 saat formatı. Lütfen 'HH:mm' formatında girin.");
-            // }
-        }
+        // {
+        //     Console.WriteLine($"12 saat formatı: {time.ToString("h:mm tt")}");
+        // }
+        // else
+        // {
+        //     Console.WriteLine("Geçersiz 24 saat formatı. Lütfen 'HH:mm' formatında girin.");
+        // }
     }
+}
 

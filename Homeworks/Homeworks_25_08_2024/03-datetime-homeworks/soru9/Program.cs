@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+
+        //Kullanıcıdan alınan bir tarihin, başka bir kullanıcıdan alınan tarihten önce mi, sonra mı yoksa aynı mı olduğunu ko
+        
         // Console.WriteLine("İlk tarihi girin (gg.aa.yyyy formatında):");
         // DateTime tarih1;
         // while (!DateTime.TryParse(Console.ReadLine(),out tarih1))

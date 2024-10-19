@@ -4,7 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        /*
+        //Kullanıcıdan alınan bir sayıya göre (1-5 arası) Türkçe sayı sıfatını yazdıran bir program yazın (1: Birinci, 2: İkinci, vb.).
+
         Console.WriteLine("Bir sayı girin (1 - 5 arası):");
         string input=Console.ReadLine();
         int number;
@@ -43,6 +44,5 @@ class Program
         {
             Console.WriteLine("Geçerli bir sayı girin");
         }
-        */
     }
 }

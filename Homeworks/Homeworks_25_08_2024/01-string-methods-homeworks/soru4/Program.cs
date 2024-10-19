@@ -4,12 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
+       //4- Kullanıcıdan alınan bir cümlenin başındaki ve sonundaki boşlukları kaldıran bir program yazın. (`Trim` metotlarını araştırınız.)
        /* Console.WriteLine("Lütfen bir cümle girin:");
-        string sentence=Console.ReadLine();
+        string input=Console.ReadLine();
 
-        string clearSentence=sentence.Trim(); 
+        string clearinput=input.Trim(); 
         */
-       
+
 
 
     }

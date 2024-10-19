@@ -6,6 +6,8 @@ class Program
 {
     static void Main(string[] args)
     {
+        //Kullanıcıdan alınan bir sayıya göre (1-7 arası) haftanın gününü yazdıran bir program yazın.
+        
         Console.WriteLine("1 ile 7 arasında bir sayı girin(günleri belirtir): ");
         String input=Console.ReadLine();
 

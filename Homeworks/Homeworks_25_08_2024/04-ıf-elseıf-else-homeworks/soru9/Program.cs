@@ -5,7 +5,8 @@ class Program
 
     static void Main()
     {
-        /*
+        //Kullanıcıdan alınan iki sayı ve bir işlem (+, -, *, /) için basit bir hesap makinesi yapın.
+
         Console.Write("Birinci sayıyı girin: ");
         string input1 = Console.ReadLine();
 
@@ -63,6 +64,6 @@ class Program
         {
             Console.WriteLine("Geçerli bir sayı girin.");
         }
-        */
+        
     }
 }

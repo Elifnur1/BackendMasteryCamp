@@ -6,7 +6,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        /*
+        //Kullanıcıdan alınan üç sayıdan en büyüğünü bulan bir program yazın.
+
         Console.WriteLine("Bir sayı girin:");
         double number1=double.Parse(Console.ReadLine());
         Console.WriteLine("İkinci sayıyı girin:");
@@ -27,7 +28,6 @@ class Program
         {
             Console.WriteLine($"en büyük sayı{number3}");
         }
-       */
-        
+
     }
 }

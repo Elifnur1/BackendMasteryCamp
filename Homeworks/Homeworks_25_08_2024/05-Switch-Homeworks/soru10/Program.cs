@@ -5,8 +5,9 @@ class Program
     static void Main(string[] args)
     {
 
-        /*
-            Console.Write("Bir matematiksel işlem karakteri girin (+, -, *, /, %): ");
+         //Kullanıcıdan alınan bir karaktere göre (+, -, *, /, %) matematiksel işlemin  adını yazdıran bir program yazın.
+
+          Console.Write("Bir matematiksel işlem karakteri girin (+, -, *, /, %): ");
             string input = Console.ReadLine();
 
             if (input.Length == 1)
@@ -39,7 +40,7 @@ class Program
             {
                 Console.WriteLine("Lütfen geçerli bir tek karakter girin.");
             }
-            */
+    
         }
     }
 

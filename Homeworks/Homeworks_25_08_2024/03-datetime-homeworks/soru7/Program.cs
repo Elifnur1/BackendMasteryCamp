@@ -5,6 +5,8 @@ class Program
     static void Main(string[] args)
 
     {
+        //Belirli bir tarih formatında (örneğin, "dd/MM/yyyy") girilen bir tarihi DateTime nesnesine çeviren ve ekrana yazdıran bir program yazın.
+        
         //     Console.Write("Tarihi girin (dd/MM/yyyy): ");
         //     string tarihStr = Console.ReadLine();
 
