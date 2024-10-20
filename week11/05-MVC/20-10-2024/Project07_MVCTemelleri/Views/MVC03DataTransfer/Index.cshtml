@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Data Transfer";
+}
+
+<h1>Data Transfer</h1>
+<p>@ViewBag.WelcomeMessage</p>
+<hr>
+<div class="container">
+    <table class="table table-bordered table-success">
+        <tr>
+            <th>Id</th>
+            <th>Kategori</th>
+            <th>Açıklama</th>
+            <th>İşlemler</th>
+        </tr>
+        @foreach(var category in ViewBag.categorylist){
+            <tr>
+                <td>@category.Id</td>
+                <td>@category.Name</td>
+                <td>@category.Description</td>
+                <td>
+                    <button class="btn btn-warning btn-sm">Düzenle</button>
+                    <button class="btn btn-primary btn-sm">Sil</button>
+                </td>
+
+
+            </tr>
+        }
+    </table>
+</div>
