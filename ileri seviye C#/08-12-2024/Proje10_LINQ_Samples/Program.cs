@@ -72,3 +72,20 @@ Repository repository = new Repository();
 // var minPrice=(from product in repository.Products
 // select product.Price).Min();
 #endregion
+#region ÖRNEK LINQ SORGULARIM
+//1-
+var FullCategory = repository
+.Categories
+.ToList();
+var FullCategory2 = from Category in repository.Categories select Category;
+//2-Fiyatları belli aralıkta olan ürünleri getirme.
+var result = repository
+.Products
+.Where(x => x.Price >= 100 && x.Price <= 500 && !x.IsDeleted)
+.ToList();
+//3-Ürünleri fiyatına göre sıralama Artan.
+//Query Syntax
+var result2 = from Product in repository.Products orderby Product.Price select Product.Price;
+
+
+#endregion
