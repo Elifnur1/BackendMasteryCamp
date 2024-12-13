@@ -35,37 +35,76 @@ using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
-List<Student> students = [
-new Student{Id=1, Name="Ayşen",Age=18,Grade=85},
-new Student{Id=2, Name="Elif",Age=18,Grade=80},
-new Student{Id=3, Name="Ali",Age=18,Grade=90},
-new Student{Id=4, Name="Emre",Age=18,Grade=95},
+// List<Student> students = [
+// new Student{Id=1, Name="Ayşen",Age=18,Grade=85},
+// new Student{Id=2, Name="Elif",Age=18,Grade=80},
+// new Student{Id=3, Name="Ali",Age=18,Grade=90},
+// new Student{Id=4, Name="Emre",Age=18,Grade=95},
 
-];
+// ];
 
 //Grade değeri 90 ve üzerinde olanları filtreleyelim
 //1)Method Syntax
-var result = students
-.Where(x => x.Grade > 90)
-.OrderBy(x => x.Name);
-foreach (var s in result)
-{
-    System.Console.WriteLine($"{s.Name}:{s.Grade}");
-}
+// var result = students
+// .Where(x => x.Grade > 90)
+// .OrderBy(x => x.Name);
+// foreach (var s in result)
+// {
+//     System.Console.WriteLine($"{s.Name}:{s.Grade}");
+// }
 
 //2)Query Syntax
-var resultQuery = from Student in students
-                  where Student.Grade >= 90
-                  orderby Student.Name
-                  select Student;
-foreach (var s in resultQuery)
-{
-    System.Console.WriteLine($"{s.Name}:{s.Grade}");
-}
-class Student
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public int Age { get; set; }
-    public int Grade { get; set; }
-}
+// var resultQuery = from Student in students
+//                   where Student.Grade >= 90
+//                   orderby Student.Name
+//                   select Student;
+// foreach (var s in resultQuery)
+// {
+//     System.Console.WriteLine($"{s.Name}:{s.Grade}");
+// }
+// class Student
+// {
+//     public int Id { get; set; }
+//     public string Name { get; set; }
+//     public int Age { get; set; }
+//     public int Grade { get; set; }
+// }
+
+
+// List<Personel> personels=[
+//     new Personel{Name="Ayşe",Age=44},
+//     new Personel{Name="Elif",Age=24},
+//     new Personel{Name=" Berat",Age=18},
+//     new Personel{Name="Tuba",Age=20},
+//     new Personel{Name="Yavuz",Age=50}
+
+// ];
+
+//Yaşı 18'den büyük olan kişileri filtreleyin ve isimlerini alfabetik sırayla yazdırın.
+//Query Syntax;
+// var result=from Personel in personels
+// where Personel.Age>18
+// orderby Personel.Name 
+// select Personel;
+// foreach (var s in result)
+// {
+//     System.Console.WriteLine($"{s.Name}: {s.Age}");
+// }
+
+
+//Method Syntax
+// var result=personels
+// .Where(x=>x.Age>18)
+// .OrderBy(x=>x.Name);
+// foreach (var r in result)
+// {
+//     System.Console.WriteLine($"{r.Name}: {r.Age}");
+// }
+
+
+// class Personel
+// {
+//     public string Name { get; set; }
+//     public int Age { get; set; }
+// }
+
