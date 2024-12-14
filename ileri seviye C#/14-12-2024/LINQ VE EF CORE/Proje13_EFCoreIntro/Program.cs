@@ -12,3 +12,16 @@
       2-DbSet:Tabloları temsil eden collectionlar
       3-Entities:Veritabanındaki tabloların c# nesne karşılık
 */
+
+/*
+  Projeye EF Core uygulamak için adımlar:
+   1-Microsoft.EntityFrameworkCore.SqlServer paketini kur(versiyona dikkat et)
+   2-DbContext,sınıfından miras alan context sınıfını oluştur.(Genelde AppDbContext,ApplicationDbContext gibi isimler verilir.)
+   3-Entity sınıflarını oluştur.(Catwgory,product,proje).
+   4-Context içerisinde her bir entity için DbSet tanımlarını yap.
+   5-Context içinde OnConfiguring metodu override ederek ConnectionString bilgisini base class(DbContext)a gönder.
+   6-dotnet ef migrations add MigrationName komutu ile migration oluştur.
+   7-dotnet ef database update ile ilgili migrationdaki işlemleri veritabanına yansıt.
+  
+*/
+System.Console.WriteLine();
