@@ -41,3 +41,42 @@ Collections:C# içerisinde dizi benzeri bir veri yapısı ifade eder.Bir kaç t�
            *Filtreleme operasyonlarını direkt olarak veri tabanı üzerinde yaparak,hız kazandırır.
 */
 //IEnumerable verileri belleğe çeker filtreleri orada yapar.Bellek daha hızlı yaptığı için oldukça performansı yüksek bir işlemdir.Her veriyi belleğe çekme işlemi yapmamayı tercih ederiz çünkü yer kaplamasını her seferinde istemeyiz.
+
+//Kendi Örneklerim
+// List<string>isimler=new List<string>{"Elif","Aleyna","Tuba","Berat"};IEnumerable<string>name=isimler;
+// foreach (var x in name)
+// {
+//     System.Console.WriteLine(x);
+// }
+// List<string>names=new List<string>{"Ali","Veli","Zeki","Fadime"};
+// ICollection<string>collectionNames=names;
+// System.Console.WriteLine("Eleman sayısını öğrenme:" + collectionNames.Count);
+// //Veri Ekleme
+// collectionNames.Add("Nazan");
+// System.Console.WriteLine("Yeni eleman eklenmiş haliyle:");
+// foreach (var x in collectionNames)
+// {
+//     System.Console.WriteLine(x);
+// }
+// //Veri Silme;
+// collectionNames.Remove("Ali");
+// foreach (var x in collectionNames)
+// {
+//     System.Console.WriteLine(x);
+// }
+// IList<string>names=new List<string>{"Ali","Ayşe","Fatma","Kadir"};
+// //İNDEKS NO İLE ERİŞİM;
+// System.Console.WriteLine("0.İsim:" + names[0]);
+// System.Console.WriteLine("1.İsim:" + names[1]);
+// names.Add("Ezgi");
+// foreach (var name in names)
+// {
+//     System.Console.WriteLine(name);
+// }
+List<string> names = new List<string> { "TUBA", "FATMA", "SEZER" };
+IQueryable<string> QueryName = names.AsQueryable()
+.Where(x => x.StartsWith("T"));
+foreach (var name in QueryName)
+{
+        System.Console.WriteLine(name);
+}
