@@ -4,5 +4,5 @@ namespace EFCore.Shared.Dtos;
 
 public class ProductDto
 {
-
+   
 }
