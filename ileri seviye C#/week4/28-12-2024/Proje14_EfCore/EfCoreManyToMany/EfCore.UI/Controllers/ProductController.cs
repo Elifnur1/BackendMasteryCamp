@@ -55,6 +55,40 @@ namespace EfCore.UI.Controllers
             productCreateDto.CategoryList = await GetCategoryListAsync();
             return View(productCreateDto);
         }
+        [HttpGet]
+        public async Task<ActionResult> Update(int id)
+        {
+            var product = await _productService.GetByIdAsync(id);
+            var ProductUpdateDto = new ProductUpdateDto
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Price = product.Price,
+                Properties = product.Properties,
+                CategoryList = await GetCategoryListAsync(),
+                CategoryIds = product.Categories.Select(x => x.Id).ToArray()
+            };
+            return View(ProductUpdateDto);
+        }
+        [HttpPost]
 
+        public async Task<ActionResult> Update(ProductUpdateDto productUpdateDto)
+        {
+            if (ModelState.IsValid && productUpdateDto.CategoryIds.Count() > 0)
+            {
+                var product = await _productService.UpdateAsync(productUpdateDto);
+                return RedirectToAction("Index");
+            }
+            if (productUpdateDto.CategoryIds == null || productUpdateDto.CategoryIds.Count() == 0)
+            {
+                ViewBag.CategoryErrorMessage =
+             productUpdateDto.CategoryIds=[];
+            }
+
+            productUpdateDto.CategoryList = await GetCategoryListAsync();
+            return View(productUpdateDto);
+        }
     }
+
 }
+
