@@ -1,0 +1,81 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "AddProduct";
+}
+<h1>Ürün Ekle</h1>
+<div class="container">
+    <form id="addProductForm">
+        <div class="mb-3">
+            <label class="for-label">Title</label>
+            <input class="form-control" asp-for=Title />
+
+        </div>
+        <div class="mb-3">
+            <label class="for-label">Description</label>
+            <input class="form-control" asp-for=Description />
+        </div>
+        <div class="mb-3">
+            <label class="for-label">Category</label>
+            <select class="form-control" asp-formaction=Category>
+                @foreach (var categories in ViewBag.Category)
+                {
+                    <option value="@categories"> @categories</option>
+                }
+
+
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+    <hr>
+    <h2>Eklenen ürünler(sayfa yüklenince kaybolur)
+    </h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            @* Buraya option sırada Eklenen ürünler javascript koduyla eklenecek *@
+        </tbody>
+    </table>
+
+</div>
+@section Scripts {
+    <script>
+        $('#addProductForm').submit(function (event) {
+            event.preventDefault();
+
+            let formData = {
+                Title: $('#Title').val(),
+                Description: $('#Description').val(),
+                Price: $('#Price').val(),
+                Category: $('#Category').val(),
+                Image:"sasaaada.png"
+            };
+            $.ajax({
+                type: 'Post',
+                url: '@Url.Action("AddProduct", "Home")',
+                data: formData,
+                success: function (addedProduct) {
+                    let newRom = `
+                        <tr>
+                            <td>${addedProduct.id}</td>
+                            <td>${addedProduct.title}</td>
+                            <td>${addedProduct.price}</td>
+                             <td>${addedProduct.category}</td>
+                             </tr>
+                        `;
+                    $('#productsTable tBody').append(newRow);
+                    $('#addProductForm').reset();
+                };
+                error: function () { alert("btn-primary hata oluştu.") };
+
+            })
+        };
+    </script>
+}
