@@ -372,10 +372,13 @@ public class EShopDbContext : IdentityDbContext<ApplicationUser, ApplicationRole
                 PasswordHash = hasher.HashPassword(null, "Qwe123.,")
 
             };
-            base.OnModelCreating(builder);
+
+    
+                base.OnModelCreating(builder);
         });
 
     }
+    
 
 }
 
