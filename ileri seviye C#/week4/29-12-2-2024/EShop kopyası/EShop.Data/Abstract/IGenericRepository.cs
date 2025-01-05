@@ -15,7 +15,7 @@ public interface IGenericRepository<TEntity> where TEntity : class
     Task<bool> ExistAsync(Expression<Func<TEntity, bool>> predicate);
     Task<int> CountAsync();
     Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate);
-    Task AddAsync(TEntity entity);
+    Task <TEntity>AddAsync(TEntity entity);
     void Update(TEntity entity);
     void Delete(TEntity entity);
 
