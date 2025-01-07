@@ -7,14 +7,13 @@ public class Cart : BaseEntity
 {
     private Cart()
     {
-
     }
     public Cart(string? applicationUserId)
     {
         ApplicationUserId = applicationUserId;
     }
-
     public string? ApplicationUserId { get; set; }
-    public ApplicationUser? ApplicationUser { get; set; } 
-    public List<CartItem>? CartItems { get; set; } = new List<CartItem>();
+    public ApplicationUser? ApplicationUser { get; set; }
+    public ICollection<CartItem>? CartItems { get; set; } = new List<CartItem>();
 }
+
