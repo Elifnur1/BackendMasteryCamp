@@ -11,11 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract/" />
-    <Folder Include="Concrete/Repositories/" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="../EShop.Entity/EShop.Entity.csproj" />
     <ProjectReference Include="../EShop.Shared/EShop.Shared.csproj" />
   </ItemGroup>
