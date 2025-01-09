@@ -16,52 +16,53 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
         _dbSet = _dbcontext.Set<TEntity>();
     }
 
-    public Task<TEntity> AddAsync(TEntity entity)
+    public async Task<TEntity> AddAsync(TEntity entity)
     {
-        throw new NotImplementedException();
+        await _dbSet.AddAsync(entity);
+        return (entity);
     }
 
-    public Task<int> CountAsync()
+    public async Task<int> CountAsync()
     {
-        throw new NotImplementedException();
+        return await _dbSet.CountAsync();
     }
 
     public Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate)
     {
-        throw new NotImplementedException();
+        return _dbSet.CountAsync(predicate);
     }
 
     public void Delete(TEntity entity)
     {
-        throw new NotImplementedException();
+        _dbSet.Remove(entity);
     }
 
-    public Task<bool> ExistAyync(Expression<Func<TEntity, bool>> predicate)
+    public async Task<bool> ExistAyync(Expression<Func<TEntity, bool>> predicate)
     {
-        throw new NotImplementedException();
+        return await _dbSet.AnyAsync(predicate);
     }
 
-    public Task<IEnumerable<TEntity>> GetAllAsync()
+    public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
-        
+        return await _dbSet.ToListAsync();
     }
 
     public async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes)
     {
-       IQueryable <TEntity>query= _dbSet;
-       if (predicate != null)
-       {
-           query = query.Where(predicate);
-       }
-       if (orderBy != null)
-       {
-           query = orderBy(query);
-       }
-         if (includes != null)
-         {
-              query = includes.Aggregate(query, (current, include) => include(current));
-         }
-         return await query.ToListAsync();
+        IQueryable<TEntity> query = _dbSet;
+        if (predicate != null)
+        {
+            query = query.Where(predicate);
+        }
+        if (orderBy != null)
+        {
+            query = orderBy(query);
+        }
+        if (includes != null)
+        {
+            query = includes.Aggregate(query, (current, include) => include(current));
+        }
+        return await query.ToListAsync();
     }
 
     public async Task<TEntity> GetAsync(int id)
@@ -87,6 +88,6 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
 
     public void Update(TEntity entity)
     {
-        throw new NotImplementedException();
+        _dbSet.Update(entity);
     }
 }
