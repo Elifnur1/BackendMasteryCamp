@@ -9,4 +9,5 @@ public class CartItemDto
     public int ProductId { get; set; }
     public ProductDto Product { get; set; }=new ProductDto();
     public int Quantity { get; set; }
+    public decimal TotalPrice => Product.Price * Quantity;
 }

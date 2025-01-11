@@ -15,7 +15,9 @@ public class CartDto
 
     // public decimal TotalPrice() => CartItems.Sum(x => x.Product.Price * x.Quantity); //Bu aynı hesaplamanın Method haliyle yazılmıştır.
 
-    public decimal TotalPrice => CartItems.Sum(x => x.Product.Price * x.Quantity);  //Bu sadece alınan ürünün toplam adediyle birlikte fiyatın çarpılmış sonucu yazılı.Bir property olarak yazdık
+    public decimal TotalAmount => CartItems.Sum(x => x.Product.Price * x.Quantity);  //Bu sadece alınan ürünün toplam adediyle birlikte fiyatın çarpılmış sonucu yazılı.Bir property olarak yazdık
+
+    public int TotalItems => CartItems == null ? 0 : CartItems.Count();
 }
 
 
