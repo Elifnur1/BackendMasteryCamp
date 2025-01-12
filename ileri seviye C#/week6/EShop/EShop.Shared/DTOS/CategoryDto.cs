@@ -1,6 +1,6 @@
 using System;
 
-namespace EShop.Shared.DTOS;
+namespace EShop.Shared.Dtos;
 
 public class CategoryDto
 {

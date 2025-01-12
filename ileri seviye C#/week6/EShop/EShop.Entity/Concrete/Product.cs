@@ -9,7 +9,7 @@ public class Product : BaseEntity
     {
 
     }
-    public Product(string? name, string? properties, decimal price, string imageUrl)
+    public Product(string name, string properties, decimal price, string imageUrl)
     {
         Name = name;
         Properties = properties;
@@ -20,6 +20,6 @@ public class Product : BaseEntity
     public string? Name { get; set; }
     public string? Properties { get; set; }
     public decimal Price { get; set; }
-    public string ImageUrl { get; set; } = string.Empty;
+    public string? ImageUrl { get; set; }
     public ICollection<ProductCategory> ProductCategories { get; set; } = new HashSet<ProductCategory>();
 }

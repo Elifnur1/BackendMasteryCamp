@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace EShop.Shared.DTOS;
+namespace EShop.Shared.Dtos;
 
 public class CartItemCreateDto
 {
@@ -11,8 +11,6 @@ public class CartItemCreateDto
     [Required(ErrorMessage = "Ürün Id zorunludur.")]
     public int ProductId { get; set; }
 
-    [Required(ErrorMessage = "Ürün adedi zorunludur.")]
+    [Required(ErrorMessage = "Ürün miktarı zorunludur.")]
     public int Quantity { get; set; }
-    
-
 }

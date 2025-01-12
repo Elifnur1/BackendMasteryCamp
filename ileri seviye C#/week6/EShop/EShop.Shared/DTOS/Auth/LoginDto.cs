@@ -1,13 +1,13 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace EShop.Shared.DTOS.ResponseDtos;
+namespace EShop.Shared.Dtos.Auth;
 
 public class LoginDto
 {
-    [Required(ErrorMessage ="Ad alanı boş bırakılamaz")]
+    [Required(ErrorMessage = "Kullanıcı adı boş bırakılamaz")]
     public string? UserName { get; set; }
-    [Required(ErrorMessage = "Şifre alanı boş bırakılamaz")]
 
+    [Required(ErrorMessage = "Şifre boş bırakılamaz")]
     public string? Pasword { get; set; }
 }

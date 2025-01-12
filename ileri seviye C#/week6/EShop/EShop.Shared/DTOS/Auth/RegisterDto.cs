@@ -2,35 +2,40 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using EShop.Shared.ComplexTypes;
 
-namespace EShop.Shared.DTOS.Auth;
+namespace EShop.Shared.Dtos.Auth;
 
 public class RegisterDto
 {
-    [Required(ErrorMessage = "Ad alan boş bırakılamaz")]
+    [Required(ErrorMessage = "Ad alanı boş bırakılamaz.")]
     public string? FirstName { get; set; }
-    [Required(ErrorMessage = "Soyad alan boş bırakılamaz")]
+
+    [Required(ErrorMessage = "Soyad alanı boş bırakılamaz.")]
     public string? LastName { get; set; }
 
-    [Required(ErrorMessage = "Adress alan boş bırakılamaz")]
+    [Required(ErrorMessage = "Adres alanı boş bırakılamaz.")]
     public string? Address { get; set; }
-    [Required(ErrorMessage = "Cinsiyet alan boş bırakılamaz")]
 
+    [Required(ErrorMessage = "Şehir alanı boş bırakılamaz.")]
+    public string? City { get; set; }
+
+    [Required(ErrorMessage = "Cinsiyet alanı boş bırakılamaz.")]
     public GenderType Gender { get; set; }
-    [Required(ErrorMessage = "Doğum tarihi alan boş bırakılamaz")]
 
+    [Required(ErrorMessage = "Doğum tarihi alanı boş bırakılamaz.")]
     public DateTime DateOfBirth { get; set; }
-    [Required(ErrorMessage = "Adress alan boş bırakılamaz")]
+
+    [Required(ErrorMessage = "Email alanı boş bırakılamaz.")]
+    [EmailAddress(ErrorMessage = "Geçerli bir email adresi giriniz.")]
     public string? Email { get; set; }
-    [Required(ErrorMessage = "Kullanıcı adı alan boş bırakılamaz")]
-    [EmailAddress(ErrorMessage = "Geçerli mail girin")]
+
+    [Required(ErrorMessage = "Kullanıcı adı alanı boş bırakılamaz.")]
     public string? UserName { get; set; }
-    [Required(ErrorMessage = "Şifre alan boş bırakılamaz")]
 
-    public string? Pasword { get; set; }
-    [Required(ErrorMessage = "Tekrar şifre alan boş bırakılamaz")]
-    [Compare("Pas")]
+    [Required(ErrorMessage = "Şifre alanı boş bırakılamaz.")]
+    public string? Password { get; set; }
+
+    [Required(ErrorMessage = "Tekrar şifre alanı boş bırakılamaz.")]
+    [Compare("Password", ErrorMessage = "Şifreler uyuşmuyor.")]
     public string? ConfirmPassword { get; set; }
-    [Required(ErrorMessage = "Rol  alan boş bırakılamaz")]
-
     public string? Role { get; set; } = "User";
 }

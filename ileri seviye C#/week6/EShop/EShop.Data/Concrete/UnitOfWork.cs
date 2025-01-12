@@ -9,6 +9,13 @@ public class UnitOfWork : IUnitOfWork
 {
     private readonly EShopDbContext _dbContext;
     private readonly IServiceProvider _serviceProvider;
+
+    public UnitOfWork(EShopDbContext dbContext, IServiceProvider serviceProvider)
+    {
+        _dbContext = dbContext;
+        _serviceProvider = serviceProvider;
+    }
+
     public void Dispose()
     {
         _dbContext.Dispose();

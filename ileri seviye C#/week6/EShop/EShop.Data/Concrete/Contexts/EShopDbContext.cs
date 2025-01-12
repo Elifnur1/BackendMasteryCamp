@@ -346,23 +346,25 @@ public class EShopDbContext : IdentityDbContext<ApplicationUser, ApplicationRole
             NormalizedEmail = "ADMINUSER@GMAIL.COM",
             EmailConfirmed = true,
             Address = "Ataşehir",
-            City = "İstanbul",
-
+            City = "İstanbul"
         };
-        adminUser.PasswordHash = hasher.HashPassword(null, "Qwe123.,");
-          var normalUser = new ApplicationUser("Esin", "Çelik", new DateTime(1995, 1, 1), GenderType.Female)
-          {
-              Id = "d2fe392f-4f60-4963-ba3a-ea52b71fb53e",
-              UserName = "normaluser@gmail.com",
-              NormalizedUserName = "NORMALUSER@GMAIL.COM",
-              Email = "normaluser@gmail.com",
-              NormalizedEmail = "NORMALUSER@GMAIL.COM",
-              EmailConfirmed = true,
-              Address = "Kadıköy",
-              City = "İstanbul",
+        adminUser.PasswordHash = hasher.HashPassword(adminUser, "Qwe123.,");
 
-          };;
-        normalUser.PasswordHash = hasher.HashPassword(null, "Qwe123.,");
+
+        var normalUser = new ApplicationUser("Esin", "Çelik", new DateTime(1995, 1, 1), GenderType.Female)
+        {
+            Id = "d2fe392f-4f60-4963-ba3a-ea52b71fb53e",
+            UserName = "normaluser@gmail.com",
+            NormalizedUserName = "NORMALUSER@GMAIL.COM",
+            Email = "normaluser@gmail.com",
+            NormalizedEmail = "NORMALUSER@GMAIL.COM",
+            EmailConfirmed = true,
+            Address = "Kadıköy",
+            City = "İstanbul"
+        };
+        normalUser.PasswordHash = hasher.HashPassword(normalUser, "Qwe123.,");
+
+        
         builder.Entity<ApplicationUser>().HasData(adminUser, normalUser);
         #endregion
 

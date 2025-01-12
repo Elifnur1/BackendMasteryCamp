@@ -1,16 +1,20 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace EShop.Shared.DTOS.Auth;
+namespace EShop.Shared.Dtos.Auth;
 
 public class ChangePasswordDto
 {
-    [Required(ErrorMessage = "Ad alanı boş bırakılamaz")]
+    [Required(ErrorMessage = "Kullanıcı adı boş bırakılamaz")]
     public string? UserName { get; set; }
-    [Required(ErrorMessage = "Mevcut şifre alanı boş bırakılamaz")]
-    public string? CurrentPassword { get; set; }
-    [Required(ErrorMessage = "Yeni şifre alanı boş bırakılamaz")]
 
+    [Required(ErrorMessage = "Mevcut şifre boş bırakılamaz")]
+    public string? CurrentPassword { get; set; }
+
+    [Required(ErrorMessage = "Yeni şifre boş bırakılamaz")]
     public string? NewPassword { get; set; }
-    public int MyProperty { get; set; }
+
+    [Required(ErrorMessage = "Yeni şifre tekrarı boş bırakılamaz")]
+    [Compare("NewPassword", ErrorMessage = "Şifreler uyuşmuyor")]
+    public string? ConfirmPassword { get; set; }
 }

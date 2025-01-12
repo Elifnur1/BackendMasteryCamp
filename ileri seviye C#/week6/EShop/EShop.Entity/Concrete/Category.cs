@@ -15,8 +15,8 @@ public class Category : BaseEntity
         ImageUrl = imageUrl;
     }
 
-    public string? Name { get; set; } 
-    public string? ImageUrl { get; set; } 
+    public string? Name { get; set; }
+    public string? ImageUrl { get; set; }
     public string? Description { get; set; }
     public ICollection<ProductCategory> ProductCategories { get; set; } = new HashSet<ProductCategory>();
 

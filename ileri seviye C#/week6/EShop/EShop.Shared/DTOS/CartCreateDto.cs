@@ -1,10 +1,10 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace EShop.Shared.DTOS;
+namespace EShop.Shared.Dtos;
 
 public class CartCreateDto
 {
-    [Required(ErrorMessage ="Kullanıcı id zorunludur.")]
+    [Required(ErrorMessage = "Kullanıcı Id zorunludur.")]
     public string? ApplicationUserId { get; set; }
 }

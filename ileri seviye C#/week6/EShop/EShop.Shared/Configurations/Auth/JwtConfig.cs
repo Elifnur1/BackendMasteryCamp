@@ -1,6 +1,6 @@
 using System;
 
-namespace EShop.Shared.Confugurations.Auth;
+namespace EShop.Shared.Configurations.Auth;
 
 public class JwtConfig
 {

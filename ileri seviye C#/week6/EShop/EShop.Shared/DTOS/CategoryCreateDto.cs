@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 
-namespace EShop.Shared.DTOS;
+namespace EShop.Shared.Dtos;
 
 public class CategoryCreateDto
 {
@@ -12,5 +12,7 @@ public class CategoryCreateDto
 
     [StringLength(300, ErrorMessage = "Kategori açıklaması en fazla 300 karakter olmalıdır.")]
     public string? Description { get; set; }
+    
+    [Required(ErrorMessage = "Kategori resmi zorunludur.")]
     public IFormFile? Image { get; set; }
 }

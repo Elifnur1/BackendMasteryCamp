@@ -1,6 +1,6 @@
 using System;
 
-namespace EShop.Shared.DTOS.Auth;
+namespace EShop.Shared.Dtos.Auth;
 
 public class TokenDto
 {

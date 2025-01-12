@@ -1,6 +1,7 @@
 using System;
+using System.Xml.Linq;
 
-namespace EShop.Shared.DTOS;
+namespace EShop.Shared.Dtos;
 
 public class CartDto
 {
@@ -10,14 +11,39 @@ public class CartDto
     public bool IsActive { get; set; }
     public bool IsDeleted { get; set; }
     public string? ApplicationUserId { get; set; }
-    public ApllicationUserDto ApplicationUser { get; set; } = new ApllicationUserDto();
+    public ApplicationUserDto ApplicationUser { get; set; } = new ApplicationUserDto();
     public ICollection<CartItemDto> CartItems { get; set; } = new List<CartItemDto>();
 
-    // public decimal TotalPrice() => CartItems.Sum(x => x.Product.Price * x.Quantity); //Bu aynı hesaplamanın Method haliyle yazılmıştır.
-
-    public decimal TotalAmount => CartItems.Sum(x => x.Product.Price * x.Quantity);  //Bu sadece alınan ürünün toplam adediyle birlikte fiyatın çarpılmış sonucu yazılı.Bir property olarak yazdık
+    public decimal TotalAmount => CartItems.Sum(x => x.Product.Price * x.Quantity);
 
     public int TotalItems => CartItems == null ? 0 : CartItems.Count();
 }
 
 
+
+
+
+
+
+// public decimal TotalPrice
+// {
+//     get
+//     {
+//         return CartItems.Sum(x => x.Product.Price * x.Quantity);
+//     }
+// }
+
+
+
+// public decimal TotalPrice() => CartItems.Sum(x => x.Product.Price * x.Quantity);
+
+// public decimal TotalPrice()
+// {
+//     decimal totalPrice = 0;
+//     foreach (var item in CartItems)
+//     {
+//         totalPrice += item.Product.Price * item.Quantity;
+//     }
+
+//     return totalPrice;
+// }

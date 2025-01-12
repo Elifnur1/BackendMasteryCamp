@@ -5,11 +5,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-<ItemGroup>
-<FrameworkReference Include="Microsoft.AspNetCore.App" />
-</ItemGroup>
-<ItemGroup>
-  <Folder Include="Confugurations/Email/" />
-</ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configurations\Email\" />
+  </ItemGroup>
 
 </Project>

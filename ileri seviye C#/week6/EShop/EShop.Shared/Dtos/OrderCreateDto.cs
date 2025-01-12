@@ -1,8 +1,8 @@
 using System;
 
-namespace EShop.Shared.DTOS;
+namespace EShop.Shared.Dtos;
 
-public class OrderCreatedDto
+public class OrderCreateDto
 {
     public string? ApplicationUserId { get; set; }
     public ICollection<OrderItemDto> OrderItems { get; set; } = new List<OrderItemDto>();
