@@ -71,7 +71,53 @@ public class AuthManager : IAuthService
 
     public Task<ResponseDto<NoContent>> ResetPasswordAsync(ResetPasswordDto resetPasswordDto)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var existingUser = await _UserManager.FindByNameAsync(registerDto.UserName);
+            if (existingUser != null)
+            {
+                return ResponseDto<ApplicationUserDto>.Fail("Bu kullanıcı adı zaten var.", StatusCodes.Status400BadRequest);
+            }
+            var user = new ApplicationUser(
+                firstName: registerDto.FirstName,
+                lastName: registerDto.LastName,
+                dateOfBirth: registerDto.DateOfBirth,
+                gender: registerDto.Gender
+            )
+            {
+                UserName = registerDto.UserName,
+                Email = registerDto.Email,
+                EmailConfirmed = true,
+                Address = registerDto.Address,
+                City = registerDto.City
+            };
+            var result = await _UserManager.CreateAsync(user, registerDto.Password);
+            if (result.Succeeded)
+            {
+                return ResponseDto<ApplicationUserDto>.Fail("Kullanıcı oluşturulurken bir hata oluştu", StatusCodes.Status400BadRequest);
+            }
+            result = await _UserManager.AddToRoleAsync(user, registerDto.Role);
+            if (!result.Succeeded)
+            {
+                return ResponseDto<ApplicationUserDto>.Fail("Kullanıcı rolü atanırken bir hata oluştu.", StatusCodes.Status400BadRequest);
+            }
+            var UserDto = new ApplicationUserDto
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                UserName = user.UserName,
+                Email = user.Email,
+                Address = user.Address,
+                City = user.City
+            };
+            return ResponseDto<ApplicationUserDto>.Success
+        }
+        catch (System.Exception)
+        {
+
+            throw;
+        }
     }
 
     private async Task<TokenDto> GenerateJwtToken(ApplicationUser user)

@@ -5,7 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EShop.API.Controllers
 {
-    [Route("api/[controller]")]  //AuthsController'ın yolu
+    //uygulamaadresi/api/auths
+    //Bu şekilde rota belirlediğimzde bu adrese ;
+    //Post Metotu iile bir istek geldiğinde HttpPost tipindeki metot yani bizde buLogin metotu çalışacak.
+    //Get metodu ile bir istek geldiğinde HttpGet tipindeki metot çalışacak.
+    //Delete metodu ile bir istek geldiğinde HttpDelete tipindeki metot çalışacaktır.
+    [Route("api/[auths")]  //AuthsController'ın yolu
     [ApiController]
     public class AuthsController : ControllerBase
     {

@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 
 namespace EShop.Shared.Dtos.ResponseDtos;
 
@@ -12,6 +13,8 @@ public class ResponseDto<T>
 {
     public T? Data { get; set; }
     public string? Error { get; set; }
+
+    [JsonIgnore]
     public int StatusCode { get; set; }
     public bool IsSuccessful { get; set; }
 
