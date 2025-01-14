@@ -78,3 +78,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+//jwt bir anahtardır ve login sistemi için kullanılır.
+//Cookie API için mantıklı değildir.
+//yaptığımız isteklerde jwt istemiş oluyoruz.
+//Burada Identity paketinin kullanıcı ayarlarını yaptık ör:şifre ayaralrı,uzunluk,...
+

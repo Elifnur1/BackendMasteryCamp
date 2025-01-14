@@ -156,5 +156,6 @@ public class AuthManager : IAuthService
             System.Console.WriteLine($"Token olluştururken bir hata oluştu: {ex.Message}");
             throw;
         }
+        
     }
 }
