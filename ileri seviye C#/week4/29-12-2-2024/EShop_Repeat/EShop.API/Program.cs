@@ -7,6 +7,7 @@ using EShop.Data.Concrete.Repositories;
 using EShop.Entity.Concrete;
 using EShop.Service.Abstract;
 using EShop.Service.Concrete;
+using EShop.Shared.Configurations.Auth;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
