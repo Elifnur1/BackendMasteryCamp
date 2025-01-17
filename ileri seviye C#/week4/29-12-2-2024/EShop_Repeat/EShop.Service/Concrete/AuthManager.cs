@@ -23,13 +23,13 @@ public class AuthManager : IAuthService
     private readonly SignInManager<ApplicationUser> _signInManager;
     private JwtConfig _jwtConfig;
 
-    public AuthManager (UserManager<ApplicationUser> useManager, SignInManager<ApplicationUser> signInManager,IOptions<JwtConfig> options)
+    public AuthManager(UserManager<ApplicationUser> useManager, SignInManager<ApplicationUser> signInManager, IOptions<JwtConfig> options)
     {
         _useManager = useManager;
         _signInManager = signInManager;
         _jwtConfig = options.Value;
     }
-    
+
 
     public Task<ResponseDto<NoContent>> ChangePasswordAsync(ChangePasswordDto changePasswordDto)
     {
@@ -41,7 +41,31 @@ public class AuthManager : IAuthService
         throw new NotImplementedException();
     }
 
-    public Task<ResponseDto<TokenDto>> LoginAsync(LoginDto loginDto)
+    public async Task<ResponseDto<TokenDto>> LoginAsync(LoginDto loginDto)
+    {
+        try
+        {
+            var user = await _useManager.FindByNameAsync(loginDto.UserName);
+            if (user == null)
+            {
+                return ResponseDto<TokenDto>.Fail("Kullanıcı adıveya şifre ahatalı", StatusCodes.Status400BadRequest);
+            }
+            var isValidPassword = await _useManager.CheckPasswordAsync(user, loginDto.Password);
+            if (!isValidPassword)
+            {
+                return ResponseDto<TokenDto>.Fail("Kullanıcı adı veya şifre hatalı", StatusCodes.Status400BadRequest);
+            }
+            var tokenDto = await GenerateJwtToken(user);
+            return ResponseDto<TokenDto>.Success(tokenDto, StatusCodes.Status200OK);
+        }
+        catch (Exception ex)
+        {
+
+            System.Console.WriteLine($"giriş yapılırken bir hata oluştu: {ex.Message}");
+        }
+    }
+
+    private async Task GenerateJwtToken(ApplicationUser user)
     {
         throw new NotImplementedException();
     }
