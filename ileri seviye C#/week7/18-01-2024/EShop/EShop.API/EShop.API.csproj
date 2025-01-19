@@ -20,4 +20,8 @@
     <ProjectReference Include="..\EShop.Shared\EShop.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot/" />
+  </ItemGroup>
+
 </Project>

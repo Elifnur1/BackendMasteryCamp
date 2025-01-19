@@ -15,29 +15,43 @@ public class CategoryManager : ICategoryService
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     private readonly IGenericRepository<Category> _categoryRepository;
+    private readonly IImageService _imageManager;
 
-    public CategoryManager(IUnitOfWork unitOfWork, IMapper mapper)
+    public CategoryManager(IUnitOfWork unitOfWork, IMapper mapper, IImageService imageManager)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
         _categoryRepository = _unitOfWork.GetRepository<Category>();
+        _imageManager = imageManager;
     }
 
-    public async Task<ResponseDto<CategoryDto>> AddAsync(CategoryCreateDto categorycreateDto)
+    public async Task<ResponseDto<CategoryDto>> AddAsync(CategoryCreateDto categoryCreateDto)
     {
         try
         {
-            var isExists = await _categoryRepository.ExistsAsync(x => x.Name.Equals(categorycreateDto.Name, StringComparison.CurrentCultureIgnoreCase));
+            var isExists = await _categoryRepository.ExistsAsync(x => x.Name.ToLower() == categoryCreateDto.Name.ToLower());
             if (isExists)
             {
-                return ResponseDto<CategoryDto>.Fail("bu isimde category mevcut.", StatusCodes.Status400BadRequest);
+                return ResponseDto<CategoryDto>.Fail("Bu adda kategori mevcut!", StatusCodes.Status400BadRequest);
             }
-            var category = _mapper.Map<Category>(categorycreateDto);
+            var category = _mapper.Map<Category>(categoryCreateDto);
+
+            //Resim yükleme işlemi
+            if (categoryCreateDto.Image == null)
+            {
+                return ResponseDto<CategoryDto>.Fail("Resim dosyası boş olamaz!", StatusCodes.Status400BadRequest);
+            }
+            var imageResponse = await _imageManager.UploadImageAsync(categoryCreateDto.Image);
+            if (!imageResponse.IsSuccessful)
+            {
+                return ResponseDto<CategoryDto>.Fail(imageResponse.Error, imageResponse.StatusCode);
+            }
+            category.ImageUrl = imageResponse.Data ?? "/images/default-category.png"; //Eğer resim yüklenmezse default resim atansın. direkt resim mi yükleniyor ? yoksa resim yolu mu yükleniyor ? 
             await _categoryRepository.AddAsync(category);
             var result = await _unitOfWork.SaveAsync();
             if (result < 1)
             {
-                return ResponseDto<CategoryDto>.Fail("kategori eklenirken bir hata oluştu", StatusCodes.Status500InternalServerError);
+                return ResponseDto<CategoryDto>.Fail("Kategori eklenirken bir hata oluştu!", StatusCodes.Status500InternalServerError);
             }
             var categoryDto = _mapper.Map<CategoryDto>(category);
             return ResponseDto<CategoryDto>.Success(categoryDto, StatusCodes.Status201Created);
@@ -214,12 +228,13 @@ public class CategoryManager : ICategoryService
             {
                 return ResponseDto<NoContent>.Fail("Pasif kategoriler güncellenemez!Önce güncellemek istediğiniz kategoriyi aktif durumuna getirmeniz gerekir", StatusCodes.Status400BadRequest);
             }
-            var existsCategoryName = await _categoryRepository.ExistsAsync(x => x.Name.Equals(category.Name, StringComparison.CurrentCultureIgnoreCase));
+            var existsCategoryName = await _categoryRepository.ExistsAsync(x => x.Name.ToLower() == categoryUpdateDto.Name.ToLower());
             if (existsCategoryName)
             {
                 return ResponseDto<NoContent>.Fail("Bu isimde kategori mevcut!", StatusCodes.Status500InternalServerError);
 
             }
+            _mapper.Map(categoryUpdateDto, category);
             _categoryRepository.Update(category);
             var result = await _unitOfWork.SaveAsync();
             if (result < 1)

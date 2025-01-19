@@ -1,5 +1,6 @@
 using EShop.Services.Abstract;
 using EShop.Services.Concrete;
+using EShop.Shared.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,39 @@ namespace EShop.API.Controllers
         {
             _categoryManager = categoryManager;
         }
+
+        [Authorize("Admin")]
+        [HttpPut]
+        public async Task<IActionResult> Update(CategoryUpdateDto categoryUpdateDto)
+        {
+            var response = await _categoryManager.UpdateAsync(categoryUpdateDto);
+            return StatusCode(response.StatusCode, response);
+        }
+
+        [Authorize("Admin")]
+        [HttpGet("Harddelete/{id}")]
+        public async Task<IActionResult> HardDelete(int id)
+        {
+            var response = await _categoryManager.HardDeleteAsync(id);
+            return StatusCode(response.StatusCode, response);
+        }
+        [Authorize("Admin")]
+        [HttpGet("Softdelete/{id}")]
+        public async Task<IActionResult> SoftDelete(int id)
+        {
+            var response = await _categoryManager.SoftDeleteAsync(id);
+            return StatusCode(response.StatusCode, response);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public async Task<IActionResult> Add(CategoryCreateDto categoryCreateDto)
+        {
+            var response = await _categoryManager.AddAsync(categoryCreateDto);
+            return StatusCode(response.StatusCode, response);
+        }
+
+
         [Authorize(Roles = "Admin")]
         [HttpGet("all")]
         public async Task<IActionResult> GetAllCategories()
@@ -62,13 +96,8 @@ namespace EShop.API.Controllers
         }
 
 
-        [Authorize("Admin")]
-        [HttpGet("count/passives")]
-        public async Task<IActionResult> CountPassives()
-        {
-            var response = await _categoryManager.CountAsync(false);
-            return StatusCode(response.StatusCode, response);
-        }
+
+
 
 
 
