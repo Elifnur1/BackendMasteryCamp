@@ -17,9 +17,30 @@ public class ImageManager : IImageService
         }
     }
 
-    public ResponseDto<bool> DeleteImage(string imageUrl)
+    public ResponseDto<NoContent> DeleteImage(string imageUrl)
     {
-        throw new NotImplementedException();
+        try
+        {
+            if (string.IsNullOrWhiteSpace(imageUrl))
+            {
+                return ResponseDto<NoContent>.Fail("resim yolu boş olamaz", StatusCodes.Status400BadRequest);
+            }
+            var fileName = Path.GetFileName(imageUrl);
+            var fileFullPath = Path.Combine(_imageFolderPath, fileName);
+            if (!File.Exists(fileFullPath))
+            {
+                return ResponseDto<NoContent>.Fail("resim dosyası bulunamadı", StatusCodes.Status404NotFound)
+                ;
+            }
+            File.Delete(fileFullPath);
+            return ResponseDto<NoContent>.Success(StatusCodes.Status200OK);
+        }
+        catch (System.Exception ex)
+        {
+
+            return ResponseDto<NoContent>.Fail(ex.Message, StatusCodes.Status500InternalServerError);
+
+        }
     }
 
     public async Task<ResponseDto<string>> UploadImageAsync(IFormFile image)

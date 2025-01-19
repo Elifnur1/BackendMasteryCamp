@@ -234,6 +234,16 @@ public class CategoryManager : ICategoryService
                 return ResponseDto<NoContent>.Fail("Bu isimde kategori mevcut!", StatusCodes.Status500InternalServerError);
 
             }
+            if (categoryUpdateDto.Image != null)
+            {
+                var imageResponse = await _imageManager.UploadImageAsync(categoryUpdateDto.Image);
+                if (!imageResponse.IsSuccessful)
+                {
+                    return ResponseDto<NoContent>.Fail(imageResponse.Error, imageResponse.StatusCode);
+                }
+                category.ImageUrl = imageResponse.Data ?? "/images/default-category.png";
+                _imageManager.DeleteImage(category.ImageUrl);
+            }
             _mapper.Map(categoryUpdateDto, category);
             _categoryRepository.Update(category);
             var result = await _unitOfWork.SaveAsync();
