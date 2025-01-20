@@ -174,6 +174,7 @@ public class CategoryManager : ICategoryService
                 return ResponseDto<NoContent>.Fail("Kategori silinirken bir hata oluştu!", StatusCodes.Status500InternalServerError);
 
             }
+            _imageManager.DeleteImage(category.ImageUrl);
             return ResponseDto<NoContent>.Success(StatusCodes.Status200OK);
         }
         catch (Exception ex)
