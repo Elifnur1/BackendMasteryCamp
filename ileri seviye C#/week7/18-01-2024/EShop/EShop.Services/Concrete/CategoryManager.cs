@@ -267,7 +267,7 @@ public class CategoryManager : ICategoryService
     {
         try
         {
-            var category = await _categoryRepository.GetAsync(x => x.Id == id);
+            var category = await _categoryRepository.GetAsync(x => x.Id == id); //dışardan verilen Id değere eşit olan category getiren metotu implement ettik.
             if (category == null)
             {
                 return ResponseDto<bool>.Fail("Kategori bulunamadığı için aktiflik durumu güncellenmedi", StatusCodes.Status404NotFound);
@@ -288,7 +288,7 @@ public class CategoryManager : ICategoryService
         }
         catch (System.Exception ex)
         {
-            return ResponseDto<bool>.Fail(ex.Message, StatusCodes.Status500InternalServerError);
+            return ResponseDto<bool>.Fail(ex.Message, StatusCodes.Status500InternalServerError); //status500InternalServerError hatası senden kaynaklı değil sunucuya bağlı bir hata yani sunucu hatası anlamına gelmekte.
 
         }
     }
