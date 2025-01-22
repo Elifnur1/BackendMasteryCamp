@@ -11,7 +11,7 @@ public class ImageManager : IImageService
     public ImageManager()
     {
         _imageFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
-        if (!Directory.Exists(_imageFolderPath))
+        if (!Directory.Exists(_imageFolderPath)) 
         {
             Directory.CreateDirectory(_imageFolderPath);
         }
