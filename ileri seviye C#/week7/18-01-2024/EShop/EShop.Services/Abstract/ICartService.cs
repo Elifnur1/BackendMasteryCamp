@@ -9,5 +9,7 @@ public interface ICartService
 {
     Task<ResponseDto<CartDto>> GetByIdAsync();
     Task<ResponseDto<IEnumerable<CartDto>>> GetAllAsync();
+    Task<ResponseDto<NoContent>> UpdateAsync(CartUpdateDto cartUpdateDto);
+
 
 }
