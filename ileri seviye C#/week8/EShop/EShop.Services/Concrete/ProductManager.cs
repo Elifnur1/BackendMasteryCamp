@@ -32,48 +32,25 @@ public class ProductManager : IProductService
     {
         try
         {
-            //Katerorilerin varlığı kontrol ediliyor.
             foreach (var categoryId in productCreateDto.CategoryIds)
             {
                 var categoryExists = await _categoryRepository.ExistsAsync(x => x.Id == categoryId && x.IsActive && !x.IsDeleted);
                 if (!categoryExists)
                 {
-                    return ResponseDto<ProductDto>.Fail($"{categoryId} id'li kategori bulunamadı veya pasif/silinmiş.", StatusCodes.Status404NotFound);
+                    return ResponseDto<ProductDto>.Fail($"{categoryId} id 'li kategori bulunamadı veya pasif/silinmiş olabilir.", StatusCodes.Status404NotFound);
                 }
+
             }
             var product = _mapper.Map<Product>(productCreateDto);
             if (productCreateDto.Image == null)
             {
                 return ResponseDto<ProductDto>.Fail("Ürün resmi boş olamaz.", StatusCodes.Status400BadRequest);
             }
-            var imageResponse = await _imageService.UploadImageAsync(productCreateDto.Image);
+            var imageResponse=await _imageService.UploadImageAsync(productCreateDto.Image);
             if (!imageResponse.IsSuccessful && imageResponse.Error != null)
             {
-                return ResponseDto<ProductDto>.Fail(imageResponse.Error, imageResponse.StatusCode);
+                return ResponseDto<ProductDto>.Fail(imageResponse.Error,imageResponse.StatusCode);
             }
-            product.ImageUrl = imageResponse.Data;
-            await _productRepository.AddAsync(product);
-            var result = await _unitOfWork.SaveAsync();
-            if (result < 1)
-            {
-                return ResponseDto<ProductDto>.Fail("Ürün eklenirken bir hata oluştu.", StatusCodes.Status500InternalServerError);
-            }
-            product.ProductCategories =
-                [.. productCreateDto
-                        .CategoryIds
-                        .Select(categoryId=>new ProductCategory(product.Id,categoryId))];
-            _productRepository.Update(product);
-            result = await _unitOfWork.SaveAsync();
-            if (result < 1)
-            {
-                return ResponseDto<ProductDto>.Fail("Ürün kategorileri eklenirken bir hata oluştu.", StatusCodes.Status500InternalServerError);
-            }
-            var response = await GetWithCategoriesAsync(product.Id);
-            if (!response.IsSuccessful && response.Error != null)
-            {
-                return ResponseDto<ProductDto>.Fail(response.Error, response.StatusCode);
-            }
-            return ResponseDto<ProductDto>.Success(response.Data, StatusCodes.Status201Created);
 
         }
         catch (Exception ex)
