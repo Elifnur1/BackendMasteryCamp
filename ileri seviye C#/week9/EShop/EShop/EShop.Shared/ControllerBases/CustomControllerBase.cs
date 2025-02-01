@@ -13,5 +13,10 @@ namespace EShop.Shared.ControllerBases
                 StatusCode = response.StatusCode
             };
         }
+        protected string GetUserId()
+        {
+            var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            return userId!;
+        }
     }
 }
