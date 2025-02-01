@@ -46,7 +46,16 @@ public class OrderManager : IOrderService
                 }
 
             }
-            var order = _mapper.Map<Order>(orderCreateDto);
+
+            // var order = _mapper.Map<Order>(orderCreateDto);
+
+            Order order=new(orderCreateDto.ApplicationUserId,orderCreateDto.Address,orderCreateDto.City)
+            {
+                OrderItems=orderCreateDto.OrderItems.Select(
+                    x=>new OrderItem{
+
+                }).ToList()
+            };
             //Fake ödeme operasyonunu ekleyeceğiz.
             await _orderRepository.AddAsync(order);
             await _unitOfWork.SaveAsync();
