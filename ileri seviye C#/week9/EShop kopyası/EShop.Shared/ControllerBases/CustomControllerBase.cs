@@ -18,6 +18,8 @@ namespace EShop.Shared.ControllerBases
         {
             var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
             return userId!;
+
+            //Kullanıcının Id bilgisini almak için kullanılır.Tekrarı önlemek için buraya yazıldı.Tüm controllerlarda kullanılabilir olması için buraya yazıldı.
         }
     }
 }
