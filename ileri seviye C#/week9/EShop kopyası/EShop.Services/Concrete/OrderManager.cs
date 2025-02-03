@@ -31,6 +31,7 @@ public class OrderManager : IOrderService
 
     public async Task<ResponseDto<OrderDto>> AddAsync(OrderCreateDto orderCreateDto)
     {
+        //Burada bir sipariş oluşturulurken, siparişteki ürünlerin var olup olmadığını kontrol ediyoruz ki olmayan ürünü siparişe eklemeyelim.
         try
         {
             foreach (var orderItem in orderCreateDto.OrderItems)
@@ -57,7 +58,7 @@ public class OrderManager : IOrderService
             await _orderRepository.AddAsync(order);
             await _unitOfWork.SaveAsync();
             //OrderItem'larla ilgili ekstra bir işlem yapmayıp, bunu izleyip sonuçlarını değerlendireceğiz. Gerekirse buraya gelip yapmamız gerekenleri yapacağız.
-            await _cartManager.ClearCartAsync(orderCreateDto.ApplicationUserId);
+            await _cartManager.ClearCartAsync(orderCreateDto.ApplicationUserId); //Sipariş verildikten sonra sepeti temizleyen kod bloğu.Çünkü yeni sipariş oluştururken kolaylık olmasını sağlıyoruz.
             var orderDto = _mapper.Map<OrderDto>(order);
             return ResponseDto<OrderDto>.Success(orderDto, StatusCodes.Status201Created);
         }
@@ -67,7 +68,7 @@ public class OrderManager : IOrderService
         }
     }
 
-    public async Task<ResponseDto<NoContent>> CancelOrderAsync(int id)
+    public async Task<ResponseDto<NoContent>> CancelOrderAsync(int id) //Siparişi iptal etme operasyonu.
     {
         try
         {
@@ -76,7 +77,7 @@ public class OrderManager : IOrderService
             {
                 return ResponseDto<NoContent>.Fail("İlgili sipariş bulunamadı", StatusCodes.Status404NotFound);
             }
-            order.IsDeleted = true;
+            order.IsDeleted = true; //Mantığı: Siparişi veritabanında silmeden, sadece "silindi" olarak işaretliyoruz. Yani, veritabanında kalıyor ama "aktif" değil.
 
             _orderRepository.Update(order);
             var result = await _unitOfWork.SaveAsync();
@@ -212,7 +213,7 @@ public class OrderManager : IOrderService
         {
             return ResponseDto<OrderDto>.Fail(ex.Message, StatusCodes.Status500InternalServerError);
         }
-    } 
+    }
 
     public async Task<ResponseDto<NoContent>> UpdateOrderStatusAsync(int id, OrderStatus orderStatus)
     {

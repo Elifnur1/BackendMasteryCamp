@@ -56,6 +56,13 @@ namespace EShop.Services.Mapping
             CreateMap<OrderItemDto, OrderItem>();
 
             CreateMap<OrderItemCreateDto, OrderItem>();
+            /*
+            formember=özellikleri tek tek eşleştrimek için kullanılır.
+            dest=hedef DTO da olan özelliği belirtir
+            src=kaynak entity de olan özelliği belirtir
+            mapfrom=src deki özelliği dest e eşleştirir
+            */
+            
             #endregion
         }
     }
