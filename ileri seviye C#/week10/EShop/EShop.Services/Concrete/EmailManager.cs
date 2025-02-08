@@ -42,7 +42,7 @@ public class EmailManager : IEmailService
             using var smtpClient = new SmtpClient(_emailConfig.SmtpServer, _emailConfig.SmtpPort)
             {
                 Credentials = new NetworkCredential(_emailConfig.SmtpUser, _emailConfig.SmtpPassword),
-                EnableSsl = true,
+                EnableSsl = false, 
                 Timeout = 10000 //10 saniye içinde mail gönderilmezse timeout olacak
             };
             var mailMessage = new MailMessage //MailMessage sınıfı ile mail gönderme işlemlerini yapacağız.
@@ -58,10 +58,10 @@ public class EmailManager : IEmailService
 
 
         }
-        catch (SmtpException)
+        catch (SmtpException smtpex)
         {
 
-            return ResponseDto<NoContent>.Fail("Mail gönderilirken bir hata oluştu", StatusCodes.Status502BadGateway);
+            return ResponseDto<NoContent>.Fail(smtpex.Message, StatusCodes.Status502BadGateway);
         }
         catch (Exception ex)
         {
