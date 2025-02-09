@@ -4,7 +4,6 @@ using EShop.Data.Concrete;
 using EShop.Data.Concrete.Contexts;
 using EShop.Data.Concrete.Repositories;
 using EShop.Entity.Concrete;
-using EShop.Services;
 using EShop.Services.Abstract;
 using EShop.Services.Concrete;
 using EShop.Services.Mapping;
@@ -65,7 +64,6 @@ builder.Services.Configure<EmailConfig>(builder.Configuration.GetSection("EmailC
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
-builder.Services.AddScoped<IEmailService, EmailManager>();
 builder.Services.AddScoped<IAuthService, AuthManager>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<IProductService, ProductManager>();

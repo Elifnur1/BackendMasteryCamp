@@ -51,9 +51,4 @@ public class ResponseDto<T>
             IsSuccessful = false
         };
     }
-
-    public static ResponseDto<NoContent> Fail(List<string> list, int status400BadRequest)
-    {
-        throw new NotImplementedException();
-    }
 }

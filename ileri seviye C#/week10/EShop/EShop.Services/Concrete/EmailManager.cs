@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Net.Mail;
+using EShop.Services.Abstract;
 using EShop.Shared.Configurations.Email;
 using EShop.Shared.Dtos.ResponseDtos;
 using Microsoft.AspNetCore.Http;
@@ -13,7 +14,7 @@ public class EmailManager : IEmailService
 {
     private readonly EmailConfig _emailConfig;
 
-    public EmailManager(IOptions<EmailConfig> emailConfig) //IOptions kullanarak appsettings.json dosyasındaki EmailConfig sınıfındaki değerleri alıyoruz.
+    public EmailManager(IOptions<EmailConfig> emailConfig)
     {
         _emailConfig = emailConfig.Value;
     }
@@ -24,44 +25,45 @@ public class EmailManager : IEmailService
         {
             if (string.IsNullOrEmpty(_emailConfig.SmtpServer))
             {
-                return ResponseDto<NoContent>.Fail("SMTP sunucu adresi yapılandırılmamıştır.", StatusCodes.Status500InternalServerError);
+                return ResponseDto<NoContent>.Fail("SMTP Sunucu adresi yapılandırılmamış!", StatusCodes.Status500InternalServerError);
             }
-            if (string.IsNullOrEmpty(_emailConfig.SmtpPassword))
+            if (string.IsNullOrEmpty(_emailConfig.SmtpUser))
             {
-                return ResponseDto<NoContent>.Fail("SMTP şifresi yapılandırılmamıştır.", StatusCodes.Status500InternalServerError);
+                return ResponseDto<NoContent>.Fail("SMTP kullanıcı adı bilgisi yapılandırılmamış!", StatusCodes.Status500InternalServerError);
+            }
+            if (string.IsNullOrEmpty(_emailConfig.SmptPassword))
+            {
+                return ResponseDto<NoContent>.Fail("SMTP şifresi yapılandırılmamış!", StatusCodes.Status500InternalServerError);
             }
             if (string.IsNullOrEmpty(emailTo))
             {
-                return ResponseDto<NoContent>.Fail("Alıcı email adresi boş olamaz", StatusCodes.Status400BadRequest);
+                return ResponseDto<NoContent>.Fail("Alıcı email adresi boş olamaz!", StatusCodes.Status400BadRequest);
             }
             if (!IsValidEmail(emailTo))
             {
-                return ResponseDto<NoContent>.Fail("Geçersiz email adresi", StatusCodes.Status400BadRequest);
+                return ResponseDto<NoContent>.Fail("Email adresi geçersizdir!", StatusCodes.Status400BadRequest);
             }
-            //mail gönderme operasyonu
             using var smtpClient = new SmtpClient(_emailConfig.SmtpServer, _emailConfig.SmtpPort)
             {
-                Credentials = new NetworkCredential(_emailConfig.SmtpUser, _emailConfig.SmtpPassword),
-                EnableSsl = false, 
-                Timeout = 10000 //10 saniye içinde mail gönderilmezse timeout olacak
+                Credentials = new NetworkCredential(_emailConfig.SmtpUser, _emailConfig.SmptPassword),
+                EnableSsl = true,
+                Timeout = 10000 //10 saniye
             };
-            var mailMessage = new MailMessage //MailMessage sınıfı ile mail gönderme işlemlerini yapacağız.
+
+            var mailMessage = new MailMessage
             {
                 From = new MailAddress(_emailConfig.SmtpUser),
                 Subject = subject,
                 Body = htmlBody,
-                IsBodyHtml = true, //Bu mailin html formatında olduğunu belirtir.Yazmasak da varsayılan değeri true'dur.
+                IsBodyHtml = true,
                 To = { new MailAddress(emailTo) }
             };
-            await smtpClient.SendMailAsync(mailMessage); //Mail gönderme işlemi gerçekleşir.
+            await smtpClient.SendMailAsync(mailMessage);
             return ResponseDto<NoContent>.Success(StatusCodes.Status200OK);
-
-
         }
-        catch (SmtpException smtpex)
+        catch (SmtpException)
         {
-
-            return ResponseDto<NoContent>.Fail(smtpex.Message, StatusCodes.Status502BadGateway);
+            return ResponseDto<NoContent>.Fail("Mail gönderimi sırasında bir sorun oluştu!", StatusCodes.Status502BadGateway);
         }
         catch (Exception ex)
         {
@@ -69,14 +71,14 @@ public class EmailManager : IEmailService
         }
     }
 
-    private bool IsValidEmail(string emailAdress)
+    private bool IsValidEmail(string emailAddress)
     {
         try
         {
-            var addr = new MailAddress(emailAdress);
-            return addr.Address == emailAdress; //bu satırda email adresi doğru formatta mı kontrol ediliyor.
+            var addr = new MailAddress(emailAddress);
+            return addr.Address == emailAddress;
         }
-        catch (Exception)
+        catch (System.Exception)
         {
             return false;
         }
