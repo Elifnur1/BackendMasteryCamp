@@ -60,7 +60,7 @@ namespace EShop.Services.Mapping
             #endregion
 
             #region ApplicationUserRole
-            CreateMap<ApplicationUser, ApplicationUserDto>().ReverseMap();
+            CreateMap<ApplicationUser, ApplicationUserDto>().ReverseMap(); //nu kodu yazma amacımız maplemek yani dönüştürmek.
             #endregion
         }
     }
