@@ -6,9 +6,9 @@ namespace EShop.MVC.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ILogger<HomeController> _logger; //Kodun amacı loglama yani hata takibi yapmak için kullanılır.
 
-       public IActionResult Index()
+    public IActionResult Index()
     {
         return View();
     }
