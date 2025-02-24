@@ -9,7 +9,7 @@ namespace EShop.MVC.Controllers
     {
         private readonly IAuthService _authService;
         private readonly IToastNotification _toastNotification;
-
+        //constructor injection.
         public AuthController(IAuthService authService, IToastNotification toastNotification)
         {
             _authService = authService;
@@ -27,7 +27,7 @@ namespace EShop.MVC.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-        [HttpPost]
+        [HttpPost] //login olma işlemi için post metot.
         public async Task<IActionResult> Login(LoginModel loginModel, string? returnUrl)
         {
             if (!ModelState.IsValid)
