@@ -51,7 +51,7 @@ namespace EShop.MVC.Areas.Admin.Controllers
             }
             _toastNotification.AddSuccessToastMessage("Kategori başarıyla kaydedildi!");
             // return RedirectToAction("Index");
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index)); //redirectttoaction amacı kategori listelerinin olduğu sayfaya yönlerdimek.
         }
 
         public async Task<IActionResult> Edit(int id)
@@ -124,7 +124,7 @@ namespace EShop.MVC.Areas.Admin.Controllers
         public async Task<IActionResult> Restore(int id)
         {
             var response = await _categoryService.SoftDeleteAsync(id);
-            return Json(new {isSuccessful=response.IsSuccessful, error=response.Error});
+            return Json(new { isSuccessful = response.IsSuccessful, error = response.Error });
         }
     }
 }
