@@ -19,7 +19,7 @@ namespace EShop.MVC.Models
         [JsonPropertyName("quantity")]
         public int Quantity { get; set; }
 
-        [JsonPropertyName("totalPrice")]
+        [JsonPropertyName("totalPrice")] //Bu kodun amacı json formatında TotalPrice olarak döndürmek.
         public decimal TotalPrice { get; set; }
     }
 

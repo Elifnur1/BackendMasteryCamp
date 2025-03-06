@@ -21,7 +21,7 @@ namespace EShop.MVC.Models
         public bool IsDeleted { get; set; }
 
         [JsonPropertyName("applicationUserId")]
-        public string ApplicationUserId { get; set; } = null!;
+        public string ApplicationUserId { get; set; } = null!; //null! ifadesi null olamaz anlamına gelir.
 
         [JsonPropertyName("applicationUser")]
         public object ApplicationUser { get; set; } = null!;
@@ -33,7 +33,7 @@ namespace EShop.MVC.Models
         public decimal TotalAmount { get; set; }
 
         [JsonPropertyName("totalItems")]
-        public decimal TotalItems { get; set; }
+        public decimal TotalItems { get; set; } //Sepeteki toplam ürün sayısı.
     }
 
 }

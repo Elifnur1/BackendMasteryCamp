@@ -6,7 +6,7 @@ namespace EShop.MVC.Models;
 public class ResponseModel<T>
 {
     [JsonPropertyName("data")]
-    public T? Data { get; set; }
+    public T? Data { get; set; } 
 
     [JsonPropertyName("error")]
     public string? Error { get; set; }

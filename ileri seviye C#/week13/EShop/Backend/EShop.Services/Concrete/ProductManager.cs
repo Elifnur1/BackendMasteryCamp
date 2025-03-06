@@ -27,12 +27,13 @@ public class ProductManager : IProductService
         _productRepository = _unitOfWork.GetRepository<Product>();
         _categoryRepository = _unitOfWork.GetRepository<Category>();
     }
+    //constructor oluştırmamızın amacı bağımlılıkları getirmek.Bu classda onlara ihtiyacımız var.
 
     public async Task<ResponseDto<ProductDto>> AddAsync(ProductCreateDto productCreateDto)
     {
         try
         {
-            if (productCreateDto.CategoryIds.Count == 0)
+            if (productCreateDto.CategoryIds.Count == 0) //Kategori seçilmediyse.
             {
                 return ResponseDto<ProductDto>.Fail("En az bir kategori seçilmelidir!", StatusCodes.Status400BadRequest);
             }
@@ -45,7 +46,7 @@ public class ProductManager : IProductService
                     return ResponseDto<ProductDto>.Fail($"{categoryId} id'li kategori bulunamadı veya pasif/silinmiş.", StatusCodes.Status404NotFound);
                 }
             }
-            var product = _mapper.Map<Product>(productCreateDto);
+            var product = _mapper.Map<Product>(productCreateDto);//productCreateDto'dan product'a map ediyoruz.
             if (productCreateDto.Image == null)
             {
                 return ResponseDto<ProductDto>.Fail("Ürün resmi boş olamaz.", StatusCodes.Status400BadRequest);
@@ -55,7 +56,7 @@ public class ProductManager : IProductService
             {
                 return ResponseDto<ProductDto>.Fail(imageResponse.Error, imageResponse.StatusCode);
             }
-            product.ImageUrl = imageResponse.Data;
+            product.ImageUrl = imageResponse.Data; //Resim yolu atanıyor.
             await _productRepository.AddAsync(product);
             var result = await _unitOfWork.SaveAsync();
             if (result < 1)
@@ -65,8 +66,8 @@ public class ProductManager : IProductService
             product.ProductCategories =
                 [.. productCreateDto
                         .CategoryIds
-                        .Select(categoryId=>new ProductCategory(product.Id,categoryId))];
-            _productRepository.Update(product);
+                        .Select(categoryId=>new ProductCategory(product.Id,categoryId))]; //ProductCategory tablosuna ekleniyor.
+            _productRepository.Update(product);//product güncelleniyor.
             result = await _unitOfWork.SaveAsync();
             if (result < 1)
             {
