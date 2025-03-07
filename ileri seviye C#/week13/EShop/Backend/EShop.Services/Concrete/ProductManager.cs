@@ -113,7 +113,7 @@ public class ProductManager : IProductService
         }
     }
 
-    public async Task<ResponseDto<IEnumerable<ProductDto>>> GetAllAsync()
+    public async Task<ResponseDto<IEnumerable<ProductDto>>> GetAllAsync() //Tüm ürünleri getirir.
     {
         try
         {
@@ -131,7 +131,7 @@ public class ProductManager : IProductService
         }
     }
 
-    public async Task<ResponseDto<IEnumerable<ProductDto>>> GetAllAsync(bool isActive)
+    public async Task<ResponseDto<IEnumerable<ProductDto>>> GetAllAsync(bool isActive)//Aktif olan ürünleri getirir.
     {
         try
         {
