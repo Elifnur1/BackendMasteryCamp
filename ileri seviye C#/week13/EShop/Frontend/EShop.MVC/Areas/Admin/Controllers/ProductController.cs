@@ -1,6 +1,7 @@
 using EShop.MVC.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using NToastNotify;
 
 namespace EShop.MVC.Areas.Admin.Controllers
@@ -17,7 +18,18 @@ namespace EShop.MVC.Areas.Admin.Controllers
             _categoryService = categoryService;
             _toastNotification = toastNotification;
         }
+        [NonAction]
+        private async Task<List<SelectListItem>> GenerateCategoryList()
+        {
+            var categories = (await _categoryService.GetAllActivesAsync()).Data;
+            List<SelectListItem> categoryList = categories!.Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.Id.ToString()
+            }).ToList();
+            return categoryList;
 
+        }
         public async Task<ActionResult> Index()
         {
             var response = await _productService.GetAllAsync();
