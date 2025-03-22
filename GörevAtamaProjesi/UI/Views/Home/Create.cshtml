@@ -1,0 +1,22 @@
+﻿@model GörevAtamaProjesi.Entity.Task
+
+<h2>Yeni Görev Ekle</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">
+        </label>
+        <input asp-asp-for="Description" class=""form-control />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+         <input type="submit" value="Ekle" class="btn btn-primary" />
+
+    </div>
+ </form>
+ <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
