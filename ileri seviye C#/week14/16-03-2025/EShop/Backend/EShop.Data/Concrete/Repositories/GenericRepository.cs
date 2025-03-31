@@ -27,7 +27,7 @@ namespace EShop.Data.Concrete.Repositories
             _dbSet.UpdateRange(entities);
         }
 
-        public async Task<int> CountAsync()
+        public async Task<int> CountAsync() //metodun amacı veritabanındaki toplam kayıt sayısını döndürmektir.
         {
             return await _dbSet.CountAsync();
         }
