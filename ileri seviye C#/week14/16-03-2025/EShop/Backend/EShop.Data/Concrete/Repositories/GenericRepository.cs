@@ -32,7 +32,7 @@ namespace EShop.Data.Concrete.Repositories
             return await _dbSet.CountAsync();
         }
 
-        public Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate)
+        public Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate) //metodun amacı veritabanındaki toplam kayıt sayısını döndürmektir.
         {
             return _dbSet.CountAsync(predicate);
         }
