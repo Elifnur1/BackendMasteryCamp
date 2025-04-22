@@ -18,7 +18,7 @@ public class HomeController : Controller
         var queryAppSetting = "select * from AppSettings";
         var appSetting = (await connection.QueryAsync<AppSetting>(queryAppSetting)).First();
 
-        //Category listesini çekiyoruz
+        //category listesini çekiyoruz.
         var queryCategories = "select * from Categories";
         var categories = await connection.QueryAsync<Category>(queryCategories);
 
