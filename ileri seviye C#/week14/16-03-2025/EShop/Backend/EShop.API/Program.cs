@@ -64,7 +64,7 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(); //veritabanına erişim için kullanılacak olan unıtofwork sınıfı.
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
-builder.Services.AddScoped<IAuthService, AuthManager>();
+builder.Services.AddScoped<IAuthService, AuthManager>(); //amacı: kullanıcıların giriş yapabilmesi için gerekli olan işlemleri yapmak.
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<ICartService, CartManager>();
