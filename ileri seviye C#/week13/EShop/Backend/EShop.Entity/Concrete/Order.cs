@@ -9,7 +9,7 @@ public class Order : BaseEntity
     private Order()
     {
     }
-    public Order(string? applicationUserId, string? address, string? city)
+    public Order(string? applicationUserId, string? address, string? city) //constructor method.
     {
         ApplicationUserId = applicationUserId;
         Address = address;
@@ -20,5 +20,5 @@ public class Order : BaseEntity
     public string? Address { get; set; }
     public string? City { get; set; }
     public OrderStatus OrderStatus { get; set; }
-    public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+    public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>(); // amacı tabloları birleştirmek.
 }
