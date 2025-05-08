@@ -22,7 +22,7 @@ $(document).ready(function () {
                 $('#posts').html(postsHtml)
             },
             error: function (err) {
-                console.log(err);
+                console.log(err); //Handle error
             }
         });
     };
