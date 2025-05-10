@@ -11,7 +11,7 @@ class Program
         DateTime now=DateTime.Now;
         //Console.WriteLine(now);
 
-        /*string time1="şu anki tarih saat:";
+        /*string time1="şu anki tarih saat:"; 
         DateTime now2=DateTime.Now;
         string time2= time1+ " "+now2;
         Console.WriteLine(time2);
