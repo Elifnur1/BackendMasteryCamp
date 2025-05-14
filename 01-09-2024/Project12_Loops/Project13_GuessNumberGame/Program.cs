@@ -11,7 +11,7 @@ class Program
         {
 
 
-            Random rnd = new Random();
+            Random rnd = new Random(); //rastgele sayı üretici
             int generatedNumber = rnd.Next(1, 100);
             Console.WriteLine($"HİLE=> {generatedNumber}");
             Console.WriteLine("**************");
