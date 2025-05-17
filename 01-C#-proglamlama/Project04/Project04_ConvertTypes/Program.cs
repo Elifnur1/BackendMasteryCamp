@@ -10,26 +10,26 @@ class Program
          long newMyAge=myAge; // int to long
 
 
-         float rate=0.87f;
+         float rate=0.87f; //float ondalıklı sayı
          double newRate=rate; // float to double
          
 
          byte studentNote=75;
          int newStudentNote=studentNote; // byte to int 
          */
-        
 
 
-            
+
+
         #endregion
 
 
 
         #region Explicit Convert(Açık dönüştürme)
-        double myValue=123.58;
-        int newMyValue=(int)myValue;// 
+        double myValue = 123.58;
+        int newMyValue = (int)myValue;// 
 
-            
+
         #endregion
     }
 }
