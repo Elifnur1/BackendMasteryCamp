@@ -25,7 +25,7 @@ class Program
 
 
 
-        #region Explicit Convert(Açık dönüştürme)
+        #region Explicit Convert(Açık dönüştürme)--- Bu işlemde veri kaybı olabilir.
         double myValue = 123.58;
         int newMyValue = (int)myValue;// 
 
