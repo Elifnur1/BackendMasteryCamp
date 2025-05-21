@@ -26,7 +26,7 @@ class Program
         result2 = Math.Ceiling(7.25);
         result2 = Math.Floor(7.99);
 
-        Console.WriteLine(result2);
+        Console.WriteLine(result2); //çıktı
 
 
         #endregion
