@@ -12,7 +12,7 @@ class Program
         }  
         DRY- Dont't Repeat Yourself
     */
-    static void Greet()  //void kavramı 
+    static void Greet()
     {
         Console.WriteLine("Merhaba Drogba");
     }
@@ -63,7 +63,7 @@ class Program
 
     }
 
-    static void Main(string[] args)
+    static void Main(string[] args) //void demek yani geriye bir değer döndürmeyecek anlamına gelir.
     {
         int bolum;
         int kalan;
