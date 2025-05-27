@@ -7,6 +7,7 @@ class Program
         System.Console.WriteLine("Bu bizim ilk programımız.");
         System.Console.WriteLine("Bu ikinci satır.");
         /*commed (yorum) yapılabilir*/
+        //Örnek;
         //Aşağıdaki görüntüyü oluşturan kodu yazınız. (Her bir satır ayrı bir komutla yazılsın.)
         //Bugün C#'a giriş yaptık.
         //Ama öncesinde VS Code ile ilgili ayarlar gerçekleştirdik.
