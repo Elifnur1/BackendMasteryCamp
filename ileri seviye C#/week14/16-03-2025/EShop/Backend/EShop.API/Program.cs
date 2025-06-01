@@ -65,7 +65,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(); //veritabanına erişim i
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 builder.Services.AddScoped<IAuthService, AuthManager>(); //amacı: kullanıcıların giriş yapabilmesi için gerekli olan işlemleri yapmak.
-builder.Services.AddScoped<ICategoryService, CategoryManager>();
+builder.Services.AddScoped<ICategoryService, CategoryManager>(); //kategoriler için gerekli işlemleri yapmak.
 builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<ICartService, CartManager>();
 builder.Services.AddScoped<IOrderService, OrderManager>();
