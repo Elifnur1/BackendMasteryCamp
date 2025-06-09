@@ -9,7 +9,7 @@ public interface IGenericRepository<TEntity> where TEntity : class
     Task<TEntity> GetAsync(
         Expression<Func<TEntity, bool>> predicate,
         params Func<IQueryable<TEntity>, IQueryable<TEntity>>[] includes
-    );
+    ); // params yani birden fazla include alabilir.
     Task<IEnumerable<TEntity>> GetAllAsync();
     Task<IEnumerable<TEntity>> GetAllAsync(
         Expression<Func<TEntity, bool>> predicate = null,
