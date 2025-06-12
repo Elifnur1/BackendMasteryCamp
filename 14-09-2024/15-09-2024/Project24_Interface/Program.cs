@@ -6,6 +6,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        IRepo repo = new ProductRepo();
+        IRepo repo = new ProductRepo(); 
     }
 }
