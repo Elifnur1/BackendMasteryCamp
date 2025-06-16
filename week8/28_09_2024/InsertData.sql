@@ -8,6 +8,7 @@ INSERT INTO LibraryItems
 VALUES
     -- 80 kitap
     ('Savaş ve Barış', '1869-01-01', 'Book'),
+    ('Sol Ayağım', '1869-01-01', 'Book'),
     ('Bülbülü Öldürmek', '1960-07-11', 'Book'),
     ('Küçük Prens', '1943-04-06', 'Book'),
     ('Suç ve Ceza', '1866-01-01', 'Book'),
