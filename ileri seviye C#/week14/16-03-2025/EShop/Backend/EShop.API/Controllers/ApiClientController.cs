@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EShop.API.Controllers
 {
+    //Bu contrellar , API clientleri(API anahtarları) yönetmek için kullanılır.
     [ApiController]
     [Route("api/[apiclient]")]
     [Authorize(Roles = "Admin")] // Sadece admin kullanıcılar API client'ları yönetebilir
