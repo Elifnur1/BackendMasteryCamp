@@ -2,4 +2,5 @@ USE master
 
 DROP DATABASE IF EXISTS Okul
 
-CREATE DATABASE Okul
+-- //okul adında veritabanı oluşturuldu.
+CREATE DATABASE Okul 
