@@ -4,6 +4,7 @@ namespace Project24_Interface.Interfaces;
 
 public class Category : IRepo
 {
+    //amaç create(oluşturma) işlemini gerekleştirmek.
     public void Create()
     {
         throw new NotImplementedException();
