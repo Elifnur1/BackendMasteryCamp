@@ -2,7 +2,7 @@ using System;
 
 namespace Project24_Interface.Interfaces;
 
-public interface IRepo
+public interface IRepo //Bir sınıfın içerdiği metotların imzasını tanımlayan arayüz.
 {
     public void Create();  //void=geri dönüş tipi olmayan metot.
     public void GetAll();
