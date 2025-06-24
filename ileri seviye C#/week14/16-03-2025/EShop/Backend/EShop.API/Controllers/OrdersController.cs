@@ -14,7 +14,7 @@ namespace EShop.API.Controllers
     [Authorize]
     public class OrdersController : CustomControllerBase
     {
-        private readonly IOrderService _orderManager;
+        private readonly IOrderService _orderManager; // sipariş işlemleri yöneticisi.
 
         public OrdersController(IOrderService orderManager)
         {
