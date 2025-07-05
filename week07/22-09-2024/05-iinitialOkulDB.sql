@@ -50,6 +50,7 @@ VALUES
     VALUES
        (1,'Temel',4),
        (1,'Temel Ders',4),
+       (1,'Matematik',3),
        (1,'Temel Elektronik',6),
        (1,'Yapay Zekaya Giriş',8),
        (2,'Temel Hukuk',6),
