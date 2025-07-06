@@ -2,7 +2,7 @@ using System;
 
 namespace Project08_PortfolioApp.Models;
 
-public class AppSetting
+public class AppSetting 
 {
     public class AppSettings
     {
