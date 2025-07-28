@@ -13,7 +13,7 @@ namespace EShop.API.Controllers
     // DELETE metodu ile bir istek geldiğinde HttpDelete tipindeki metot(???) çalışacak
     [Route("api/auths")]
     [ApiController]
-    public class AuthsController : ControllerBase //miras alındı.
+    public class AuthsController : ControllerBase 
     {
         private readonly IAuthService _authService;
 
